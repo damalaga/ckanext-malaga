@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+  xmlns:py="http://genshi.edgewall.org/"
+  xmlns:foaf="http://xmlns.com/foaf/0.1/"
+  xmlns:owl="http://www.w3.org/2002/07/owl#"
+  xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:dcat="http://www.w3.org/ns/dcat#"
+  xmlns:dct="http://purl.org/dc/terms/"
+  xmlns:time="http://www.w3.org/2006/time#"
+  xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+  xmlns:tema="http://datos.gob.es/kos/sector-publico/sector/"
+>
+<dcat:Catalog rdf:about="${ g.site_about}">
+<dct:identifier>${ g.site_url }</dct:identifier>
+<dct:title xml:lang="es">${ g.site_title }</dct:title>
+<dct:description xml:lang="es">${ g.site_description }</dct:description>
+<dct:publisher rdf:resource="http://datos.gob.es/recurso/sector-publico/org/Organismo/L01290672"/>
+<dct:extent>
+<dct:SizeOrDuration>
+<rdf:value rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">${h.mlg_fed_total_resources_size()}</rdf:value>
+<rdfs:label xml:lang="es">${h.mlg_fed_total_resources_size()}bytes</rdfs:label>
+</dct:SizeOrDuration>
+</dct:extent>
+<dct:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2013-08-06T12:00:00</dct:issued>
+<dct:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">${ h.mlg_cur_datetime('') }</dct:modified>
+<dc:language>es</dc:language>
+<dct:spatial rdf:resource="http://datos.gob.es/recurso/sector-publico/territorio/provincia/malaga"/>
+<dcat:themeTaxonomy rdf:resource="http://datos.gob.es/kos/sector-publico/sector/"/>
+<foaf:homepage rdf:resource="${ g.site_url }"/>
+<dct:license rdf:resource="http://www.malaga.eu/portal/menu/varios/avisoLegal"/>
+<dcat:dataset>
+<py:for each="ds in h.mlg_datasets_resources_list()">
+<dcat:Dataset rdf:about="${ h.url_for(controller='package',action='read',id=ds['name'], qualified=True)}">
+<dct:identifier>${ h.url_for(controller='package',action='read',id=ds['name'], qualified=True)}</dct:identifier>
+<dct:title xml:lang="es">${ds['title']}</dct:title>
+<dct:description xml:lang="es">${ds['notes'].replace('\n','').replace('\r',' ')}</dct:description>
+<py:for each="dato in ds['groups']">
+<dcat:theme py:with="groupname= dato['name']; urlgroup=h.url_for(controller='group',action='read',id='', qualified=True)" rdf:resource="http://datos.gob.es/kos/sector-publico/sector/${ groupname }"/></py:for>
+<py:for each="tag_dict in ds['tags']">
+<dcat:keyword>${ tag_dict["name"]}</dcat:keyword>
+</py:for>
+<dct:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">${ds['metadata_created'][:19]}</dct:issued>
+<dct:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">${ds['metadata_modified'][:19]}</dct:modified>
+<dc:language>es</dc:language>
+<dct:publisher rdf:resource="http://datos.gob.es/recurso/sector-publico/org/Organismo/L01290672"/>
+<py:if test="len(ds['license_url'])>0">
+<dct:license>${ds['license_url']}</dct:license>
+</py:if>
+<dct:spatial rdf:resource="http://datos.gob.es/recurso/sector-publico/territorio/provincia/Malaga"/>
+<dct:valid rdf:datatype="http://www.w3.org/2001/XMLSchema#date"></dct:valid>
+<py:for each="rsc_dict in ds['resources']">
+<dcat:distribution>
+<dcat:Distribution>
+<dct:identifier>${ h.url_for(controller='package',action='read',id=ds['name'], qualified=True)}/resource/${rsc_dict['id']}</dct:identifier>
+<dct:title xml:lang="es">${rsc_dict['name']}</dct:title>
+<dcat:accessURL rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">${rsc_dict['url']}</dcat:accessURL>
+<dct:format py:choose="">
+<dct:IMT py:when="rsc_dict['format']=='shp'" rdf:value="application/x-zipped-shp" rdfs:label="shp"/>
+<dct:IMT py:when="rsc_dict['format']=='PDF'" rdf:value="application/pdf" rdfs:label="PDF" />
+<dct:IMT py:when="rsc_dict['format']=='CSV'" rdf:value="text/csv" rdfs:label="CSV" />
+<dct:IMT py:when="rsc_dict['format']=='XLS'" rdf:value="application/vnd.ms-excel" rdfs:label="XLS"/>
+<dct:IMT py:otherwise="" rdf:value="${rsc_dict['mimetype']}" rdfs:label="${rsc_dict.get('format')}"/>
+</dct:format>
+<py:if test="rsc_dict['size']>0">
+<dcat:byteSize rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">${rsc_dict['size']}</dcat:byteSize>
+</py:if>
+<py:with vars="relat=h.mlg_fed_datasets_related(ds['name'])">
+   <py:if test="len(relat)>0">
+   <dct:relation>
+   <py:for each="rel in relat">
+	<rdf:Description>
+		<rdfs:label xml:lang="es">${rel['title']}</rdfs:label>
+		<foaf:page rdf:resource="${rel['url']}" />
+	</rdf:Description>
+   </py:for>
+   </dct:relation>
+   </py:if>
+</py:with>
+</dcat:Distribution>
+</dcat:distribution>
+</py:for>
+</dcat:Dataset>
+</py:for>
+</dcat:dataset>
+</dcat:Catalog>
+</rdf:RDF>

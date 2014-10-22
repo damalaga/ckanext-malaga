@@ -1,0 +1,21 @@
+<!-- Snippet home/snippets/most_downloaded_list.html start-->
+{#
+Displays a list of most recents modified datasets.
+
+Example:
+
+  {% snippet 'snippets/package_list.html', datasets=recents_datasets %}
+
+#}
+{% if datasets %}
+{% set cont=0 %}
+	{% for ds in datasets %}
+  <ul class="{{ list_class or 'dataset-list unstyled' }}">
+	      {% snippet 'home/snippets/most_downloaded_item.html', ds=datasets[cont] %}
+	      {% set cont = cont + 1 %}
+	{% endfor %}
+  </ul>
+
+{% endif %}
+<!-- Snippet home/snippets/most_downloaded_list.html end-->
+

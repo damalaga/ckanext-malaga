@@ -1,0 +1,24 @@
+{% extends "page.html" %}
+
+{% block subtitle %}{{ _('Detalles Técnicos') }}{% endblock %}
+
+{% block breadcrumb_content %}
+  <li class="active">{% link_for _('Detalles Técnicos'), controller='home', action='about' %}</li>
+{% endblock %}
+
+{% block primary %}
+  <article class="module">
+    <div class="module-content">
+      {% block about %}
+        {% if g.site_about %}
+          {% snippet 'home/snippets/detallestecnicos_text.html' %}
+        {% else %}
+          <h1 class="page-heading">{{ _('Detalles Técnicos') }}</h1>
+          {% snippet 'home/snippets/detallestecnicos_text.html' %}
+        {% endif %}
+      {% endblock %}
+    </div>
+  </article>
+{% endblock %}
+
+{% block secondary %}{% endblock %}

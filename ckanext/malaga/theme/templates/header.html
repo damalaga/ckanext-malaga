@@ -1,0 +1,55 @@
+<!-- header.html start -->
+{% block header_wrapper %}
+  <link rel="stylesheet" href="/css/mlg.css" type="text/css" media="screen, projection" />
+{%- block loginheader%}
+	{% include "loginheader.html" %}
+{% endblock %}
+<div class="malaga-cabecera">
+  {% block header_debug %}
+    {% if g.debug and not g.debug_supress_header %}
+      <div class="debug">Controller : {{ c.controller }}<br/>Action : {{ c.action }}</div>
+    {% endif %}
+  {% endblock %}
+<div class="container">
+      {% block header_logo %}
+      <div class="malaga-logo">
+        {% if g.site_logo %}
+          <a class="logo" href="{{ h.url('home') }}"><img src="{{ h.url_for_static(g.site_logo) }}" alt="{{ g.site_title }} Logo" title="{{ g.site_title }} Logo" /></a>
+        {% else %}
+          <h1>
+            <a href="{{ h.url('home') }}">{{ g.site_title }}</a>
+          </h1>
+          {% if g.site_description %}<h2>{{ g.site_description }}</h2>{% endif %}
+        {% endif %}
+	</div>
+	  {% endblock %}
+
+      {% block header_site_search %}
+       <div class="search-malaga" >
+        <form class="section site-search simple-input" action="{% url_for controller='package', action='search' %}" method="get">
+            <label for="field-sitewide-search">{{ _('Search Datasets') }}</label>
+            <input id="field-sitewide-search" type="text" name="q" placeholder="{{ _('Search') }}" />
+        </form>
+          </div>
+      {% endblock %}
+      {% block header_site_navigation %}
+ 	<div class="mlg-menu">
+          <ul class="mlg-nav mlg-nav-pills">
+            {% block header_site_navigation_tabs %}
+            {{ h.build_nav_main(
+              ('search', _('Datasets')),
+              ('organizations_index', _('Organizations')),
+              ('group_index', _('Groups')),
+              ('aplicaciones', _('Aplicaciones')),
+              ('about', _('About'))
+            ) }}
+            {% endblock %}
+          </ul>
+      {% endblock %}
+	</div>
+</div>
+
+</div>
+{% endblock %}
+<!-- header.html end -->
+

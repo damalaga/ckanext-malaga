@@ -1,0 +1,12 @@
+setup.py
+ckanext/__init__.py
+ckanext/malaga/__init__.py
+ckanext/malaga/home.py
+ckanext/malaga/plugin.py
+ckanext_malaga.egg-info/PKG-INFO
+ckanext_malaga.egg-info/SOURCES.txt
+ckanext_malaga.egg-info/dependency_links.txt
+ckanext_malaga.egg-info/entry_points.txt
+ckanext_malaga.egg-info/namespace_packages.txt
+ckanext_malaga.egg-info/not-zip-safe
+ckanext_malaga.egg-info/top_level.txt

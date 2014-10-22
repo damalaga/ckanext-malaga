@@ -1,0 +1,46 @@
+{% set num_max_ds = 4 %}
+
+{# para ordenar por los más recientes
+{% set sec_title = 'Más recientes' %}
+{% set order = '' %} 
+#}
+
+{# para ordenar por los populares (más descargados) #}
+{% set sec_title = 'Más descargados' %}
+{% set order = 'views_recent desc' %} 
+
+
+{# para ordenar por los que tienen más relevancia
+{% set sec_title = 'Más relevantes' %}
+{% set order = 'score desc, metadata_modified desc' %} 
+#}
+
+
+<div role="main" class="malaga-hero-presentacion">
+
+  <div class="container">
+		{% include "/home/snippets/carrusel.html" %} 
+  </div>
+
+  <div class="mlg-container-center">
+		{% include "/home/snippets/bienvenido.html" %} 
+  </div>
+
+  <div class="mlg-container-center mlg-grupos-organizaciones">
+		{% include "/home/snippets/ico_gr_org.html" %} 
+  </div>
+</div>
+
+<div role="main" class="malaga-main-presentacion">
+  <div class="container">
+    <div class="row row2">
+      <div class="span6 col1">
+        {% snippet 'home/snippets/most_downloaded_block.html', datasets=h.mlg_most_downloaded(num_max_ds,order), section_title=sec_title %}
+      </div>
+      <div class="span6 col2">
+        {% snippet 'home/snippets/participa.html' %}
+      </div>
+    </div>
+  </div>
+</div>
+

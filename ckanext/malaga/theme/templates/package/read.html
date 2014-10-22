@@ -1,0 +1,41 @@
+{% extends "package/read_base.html" %}
+
+{% set pkg = c.pkg_dict %}
+
+{% block primary_content_inner %}
+  {{ super() }}
+  {% block package_description %}
+    {% if pkg.private %}
+      <span class="dataset-private label label-inverse pull-right">
+        <i class="icon-lock"></i>
+        {{ _('Private') }}
+      </span>
+    {% endif %}
+<div>
+      {% block page_heading %}
+<h1>        {{ pkg.title or pkg.name }}
+        {% if pkg.state.startswith('draft') %}
+         [{{ _('Draft') }}]
+        {% endif %}
+
+<a href={{h.url_for(controller='package',action='read',id=c.pkg_dict['name'], qualified=True)}}.rdf>
+<img class="malaga-format-ico-rdf" src="/images/support/icon-rdf.png">
+</a>
+</h1>
+      {% endblock %}
+</div>
+  {% endblock %}
+
+  {% block package_resources %}
+    {% snippet "package/snippets/resources_list.html", pkg=pkg, resources=pkg.resources %}
+  {% endblock %}
+
+  {% block package_tags %}
+    {% snippet "package/snippets/tags.html", tags=pkg.tags %}
+  {% endblock %}
+
+  {% block package_additional_info %}
+    {% snippet "package/snippets/additional_info.html", pkg_dict=pkg %}
+  {% endblock %}
+
+{% endblock %}

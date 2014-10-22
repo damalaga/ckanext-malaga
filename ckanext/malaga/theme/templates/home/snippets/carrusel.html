@@ -1,0 +1,61 @@
+<!-- Snippet home/snippets/carrusel.html start-->
+{% set stats = h.get_site_statistics() %}
+
+<script type="text/javascript">
+
+var $ = jQuery.noConflict();
+
+$(document).ready(function() {
+ $('#mlg-carrusel').carousel({
+       interval: 4000,
+	pause: "hover",
+          cycle: true
+ });
+});
+
+</script>
+
+
+
+<div id="mlg-carrusel" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#mlg-carrusel" data-slide-to="0" class="active"></li>
+    <li data-target="#mlg-carrusel" data-slide-to="1"></li>
+    <li data-target="#mlg-carrusel" data-slide-to="2"></li>
+    <li data-target="#mlg-carrusel" data-slide-to="3"></li>
+    <li data-target="#mlg-carrusel" data-slide-to="4"></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+    <div class="item active">
+	{% include "/home/snippets/carousel_resources.html" %} 		
+    </div>
+    <div class="item">
+	{% include "/home/snippets/carousel_tags.html" %} 	
+    </div>
+    <div class="item">
+	{% include "/home/snippets/carousel_stats.html" %} 		
+    </div>
+    <div class="item"><a href="mailto:datosabiertos@malaga.eu?subject=Aplicaciones con opendata">
+	<img src="images/home-slider/aplicaciones.png" alt="Háznos llegar tus aplicaciones" onmouseout="javascript:this.src='/images/home-slider/aplicaciones.png';" onmouseover="javascript:this.src='images/home-slider/aplicacioneson.png';" onmouseup="javascript:this.src='images/home-slider/aplicaciones.png';" onmousedown="javascript:this.src='images/home-slider/aplicacioneson.png';"></a> 	    
+    </div>
+   <div class="item">
+	<a href="http://www.malaga.eu"><img src="images/home-slider/ayuntamiento.png" alt="malaga.eu"></a>
+   </div>
+  </div>
+
+  <!-- Controls -->
+<!--
+  <a class="left carousel-control" href="#mlg-carrusel" role="button" data-slide="prev"><</a>
+  <a class="right carousel-control" href="#mlg-carrusel" role="button" data-slide="next">></a>
+-->
+  <a class="left carousel-control" href="#mlg-carrusel" role="button" data-slide="prev"><img src="/images/home-slider/left.png"  onmouseout="javascript:this.src='/images/home-slider/left.png';" onmouseover="javascript:this.src='images/home-slider/lefton.png';" onmouseup="javascript:this.src='images/home-slider/left.png';" onmousedown="javascript:this.src='images/home-slider/lefton.png';"></a>
+  <a class="right carousel-control" href="#mlg-carrusel" role="button" data-slide="next"><img src="/images/home-slider/right.png"  onmouseout="javascript:this.src='/images/home-slider/right.png';" onmouseover="javascript:this.src='images/home-slider/righton.png';" onmouseup="javascript:this.src='images/home-slider/right.png';" onmousedown="javascript:this.src='images/home-slider/righton.png';">
+</a>
+
+
+</div>
+<!-- Snippet home/snippets/carrusel.html end-->
+

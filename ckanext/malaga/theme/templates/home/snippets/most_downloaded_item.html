@@ -1,0 +1,35 @@
+<!-- Snippet home/snippets/most_downloaded_item.html start-->
+{#
+Displays a single information from a recent dataset
+ds contains a python dictionary structure:
+{'notes':'dataset notes field', 'title':'dataset title field', 'name':'name title field'
+
+ds        - dataset resume information
+
+Example:
+
+  {% snippet 'snippets/recent_item.html', ds=dataset[0] %}
+
+#}
+
+
+{% set ds_title = ds['title'] %}
+{% set ds_name = 'dataset/'+ds['name'] %}
+{% set ds_notes = ds['notes'] %}
+{% set ds_metadata_modified = ds['metadata_modified'][8:10] + '/' + ds['metadata_modified'][5:7] +'/'+ ds['metadata_modified'][0:4] %}
+{#
+{% set ds_metadata_modified = h.render_datetime(ds['metadata_modified']) %}
+#}
+  {% block package_item_content %}
+    <div class="dataset-content" style='padding:10px;0px;0px;0px'>
+      <h3 class="dataset-heading"><a href={{ ds_name }}> {{ ds_title }}</a></h3>
+      {% if banner %}
+        <span class="banner">{{ _('Popular') }}</span>
+      {% endif %}
+      {% if ds_notes %}
+	<div>{{ ds_notes[0:100] }}...</div>
+      {% endif %}
+    </div>
+  {% endblock %}
+<!-- Snippet home/snippets/most_downloaded_item.html end-->
+

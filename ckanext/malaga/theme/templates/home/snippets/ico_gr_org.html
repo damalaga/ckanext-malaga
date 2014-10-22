@@ -1,0 +1,46 @@
+<!-- Snippet home/snippets/ico_gr_org.html start-->
+{% set grupos = h.mlg_group_list() %}
+{% set orgs = h.mlg_organization_list() %}
+<div class="mlg-home-grupos-org">
+<ul class="nav nav-tabs" id="mlg-main-tab">
+  <li class="active"><a href="#mlg-grupos" data-toggle="tab"><h3>Grupos</h3></a></li>
+  <li><a href="#mlg-organizaciones" data-toggle="tab"><h3>Organizaciones</h3></a></li>
+</ul>
+<div class="tab-content" style="display:block" >
+  <div class="tab-pane active  mlg-img-iconos" id="mlg-grupos">
+	<ul>
+	{% for nombregrupo in grupos %}
+	<li>
+	<a href="/groups/{{nombregrupo['name']}}" id="grupo-{{nombregrupo['name']}}"
+	rel="popover" data-trigger="hover" data-toggle="tooltip"
+	title="{{nombregrupo['display_name']}}" data-placement="bottom">
+	<img src="/images/groups/50px/{{ nombregrupo['name'] }}.png" onmouseout="javascript:this.src='/images/groups/50px/{{ nombregrupo['name'] }}.png'" onmouseover="javascript:this.src='/images/groups/50px/{{ nombregrupo['name'] }}-on.png'" onmouseup="javascript:this.src='/images/groups/50px/{{ nombregrupo['name'] }}.png';" onmousedown="javascript:this.src='/images/groups/50px/{{ nombregrupo['name'] }}-on.png';">
+	</a>
+	</li>
+	{% endfor %}
+	</ul>
+  </div>
+  <div class="tab-pane mlg-img-iconos" id="mlg-organizaciones">
+	<ul>
+	{% for nombreorg in orgs %}
+	<li>
+	<a href="/organization/{{nombreorg['name']}}" id="org-{{nombreorg['name']}}"
+rel="popover" data-trigger="hover" data-toggle="tooltip"
+title="{{nombreorg['display_name']}}" data-placement="bottom">
+	<img src="/images/organizations/50px/{{ nombreorg['name'] }}.png" onmouseout="javascript:this.src='/images/organizations/50px/{{ nombreorg['name'] }}.png'" onmouseover="javascript:this.src='/images/organizations/50px/{{ nombreorg['name'] }}-on.png'" onmouseup="javascript:this.src='/images/organizations/50px/{{ nombreorg['name'] }}.png';" onmousedown="javascript:this.src='/images/organizations/50px/{{ nombreorg['name'] }}-on.png';">
+	</a>
+	</li>
+	{% endfor %}
+	</ul>
+  </div>
+</div>
+
+<script>
+  $(function () {
+    $('#myTab a:last').tab('show');
+    $("[data-toggle='tooltip']").tooltip();
+  })
+</script>
+</div>
+<!-- Snippet home/snippets/ico_gr_org.html end-->
+

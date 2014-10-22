@@ -1,0 +1,20 @@
+{% extends "page.html" %}
+
+{% block subtitle %}Soporte Técnico{% endblock %}
+
+{% block breadcrumb_content %}
+  <li class="active"> <li class="active"><a class=" active" href="/soporte">Soporte Técnico</a></li></li>
+{% endblock %}
+
+{% block primary %}
+  <article class="module">
+    <div class="mlg-module-content">
+      {% block saber %}
+        <h1 class="page-heading">Soporte Técnico</h1>
+	{% include "/home/snippets/soporte_tecnico.html" %}
+      {% endblock %}
+    </div>
+  </article>
+{% endblock %}
+
+{% block secondary %}{% endblock %}

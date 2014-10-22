@@ -1,0 +1,6 @@
+
+        [ckan.plugins]
+	# Add plugins here, eg
+	# myplugin=ckanext.malaga:PluginClass
+        malaga=ckanext.malaga.plugin:malagae
+	
