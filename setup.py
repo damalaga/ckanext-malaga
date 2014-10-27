@@ -22,11 +22,11 @@ setup(
 	install_requires=[
 		# -*- Extra requirements: -*-
 	],
-	entry_points="""\	
+	entry_points='''	
 	[paste.paster_command]
 	malaga = ckanext.malaga.commands:malagae
         [ckan.plugins]
         malaga=ckanext.malaga.plugin:malagae
-	""",
+	''',
 )
 
