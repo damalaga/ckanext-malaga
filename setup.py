@@ -12,7 +12,7 @@ setup(
 	classifiers=[], # Get strings from http://pypi.python.org/pypi?%3Aaction=list_classifiers
 	keywords='',
 	author='Isabel & Francis',
-	author_email='saic@malaga.eu',
+	author_email='datosabiertos@malaga.eu',
 	url='http://datosabiertos.malaga.eu',
 	license='',
 	packages=find_packages(exclude=['ez_setup', 'examples', 'tests']),
@@ -22,8 +22,7 @@ setup(
 	install_requires=[
 		# -*- Extra requirements: -*-
 	],
-	entry_points=\	
-	"""
+	entry_points="""\	
 	[paste.paster_command]
 	malaga = ckanext.malaga.commands:malagae
         [ckan.plugins]
