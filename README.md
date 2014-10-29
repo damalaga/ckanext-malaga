@@ -44,6 +44,6 @@ licenses_group_url = file:///home/ckan/ckan/lib/default/src/ckanext-malaga/ckane
 
 ##NOTAS
 
-1. El tablero grupos/organizaciones no es compatible con Internet Explorer.
+1. El tablero grupos/organizaciones de la pantalla principal no es compatible con Internet Explorer.
 2. Los grupos y organizaciones están clasificados según nuestras necesidades, los iconos sólo aparecen si los grupos y organizaciones existen, en otro caso, no aparecerá ninguna imagen.
 
