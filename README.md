@@ -23,7 +23,8 @@ ckanext-malaga es la extensión que hemos desarrollado para publicar el [Portal 
 Añadir en el fichero .ini estas lineas y, a continuacion reiniciar apache2:
 
 \#Añadimos la extension
-<p>ckan.plugins = .... malaga</p>
+<p>
+<code>ckan.plugins = .... malaga</code></p>
 
 \#indica donde se encuentra la entrada "aplicaciones" del menú
 <p>ckan_mlg.apl_url = aplicaciones.html </p>
