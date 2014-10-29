@@ -23,24 +23,23 @@ ckanext-malaga es la extensión que hemos desarrollado para publicar el [Portal 
 Añadir en el fichero .ini estas lineas y, a continuacion reiniciar apache2:
 
 \#Añadimos la extension
+<pre>
 <code>
-<p>ckan.plugins = .... malaga</p>
+ckan.plugins = .... malaga
 #indica donde se encuentra la entrada "aplicaciones" del menú
 ckan_mlg.apl_url = aplicaciones.html 
-
-\#################
-<p>\#Ubicacion de los ficheros usados en el proceso de federacion
-<p>\#ubicacion del fichero federador que se va a rellenar
-<p>ckan_mlg.federador_rdf_write = /home/ckan/ckan/lib/default/src/ckanext-malaga/ckanext/malaga/theme/templates/local/federador.rdf
-<p>\#URL del fichero federador que se va a recuperar sin generar
-<p>ckan_mlg.federador_rdf_url = http://ckan20/local/federador.rdf
-<p>\#ubicacion del rdf que se usa para la federacion
-<p>ckan_mlg.federador_template = local/plantillafederacion.rdf
-<p>\#################
-
-\# Fichero de licencias
+#################
+#Ubicacion de los ficheros usados en el proceso de federacion
+#ubicacion del fichero federador que se va a rellenar
+ckan_mlg.federador_rdf_write = /home/ckan/ckan/lib/default/src/ckanext-malaga/ckanext/malaga/theme/templates/local/federador.rdf
+#URL del fichero federador que se va a recuperar sin generar
+ckan_mlg.federador_rdf_url = http://ckan20/local/federador.rdf
+#ubicacion del rdf que se usa para la federacion
+ckan_mlg.federador_template = local/plantillafederacion.rdf
+#################
+# Fichero de licencias
 licenses_group_url = file:///home/ckan/ckan/lib/default/src/ckanext-malaga/ckanext/malaga/public/licencias.json
-</code>
+</code></pre>
 
 ##NOTAS
 
