@@ -20,16 +20,16 @@ ckanext-malaga es la extensión que hemos desarrollado para publicar el [Portal 
 <p>pip install -e git+git://github.com/damalaga/ckanext-malaga#egg=ckanext-malaga</p>
 
 ###Configuración
+Añadir en el fichero .ini estas lineas y, a continuacion reiniciar apache2:
 
-1. Añadir en el fichero .ini:
+\#Añadimos la extension
 <p>ckan.plugins = .... malaga</p>
 
 \#indica donde se encuentra la entrada "aplicaciones" del menú
 <p>ckan_mlg.apl_url = aplicaciones.html </p>
 
 \#################
-\#Configuración para la federación en datos.gob.es
-<p>\#iruiz: Relacionados con la federacion
+<p>\#Ubicacion de los ficheros usados en el proceso de federacion
 <p>\#ubicacion del fichero federador que se va a rellenar
 <p>ckan_mlg.federador_rdf_write = /home/ckan/ckan/lib/default/src/ckanext-malaga/ckanext/malaga/theme/templates/local/federador.rdf
 <p>\#URL del fichero federador que se va a recuperar sin generar
@@ -41,7 +41,6 @@ ckanext-malaga es la extensión que hemos desarrollado para publicar el [Portal 
 \# Fichero de licencias
 licenses_group_url = file:///home/ckan/ckan/lib/default/src/ckanext-malaga/ckanext/malaga/public/licencias.json
 
-2. Reiniciar apache2
 
 ##NOTAS
 
