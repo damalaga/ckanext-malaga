@@ -3,20 +3,20 @@ ckanext-malaga
 
 [CKAN](http://ckan.org) es un portal de código abierto, diseñado y desarrolado para que los gobiernos locales y estatales puedan publicar y compartir su datos abiertos fácilmente.
 
-ckanext-malaga es la extensión que hemos desarrollado para publicar el [Portal de Datos Abiertos del Ayuntamiento de Málaga](datosabiertos.malaga.eu)
+ckanext-malaga es la extensión que hemos desarrollado para publicar el [Portal de Datos Abiertos del Ayuntamiento de Málaga](http://datosabiertos.malaga.eu)
 
 ##Funcionalidades implementadas:
 * Carrusel de la pantalla principal con bootstrap.
-* La federación de datos con datos.gob.es
+* Federación de datos con datos.gob.es
 
 ###Instalación
 
-1. Conectase a la máquina con el usuario de ckan.
-2. Ir al directorio de instalación de la extensión:
- cd ckan/lib/default/src
-3. Activar el entorno
+* Conectase a la máquina con el usuario de ckan.
+* Ir al directorio de instalación de la extensión (en nuestro caso):
+cd ckan/lib/default/src
+* Activar el entorno
 . /usr/lib/ckan/default/bin/activate
-4. Descargar e instalar la extensión:
+* Descargar e instalar la extensión:
 pip install -e git+git://github.com/damalaga/ckanext-malaga#egg=ckanext-malaga
 
 ###Configuración
@@ -25,19 +25,19 @@ pip install -e git+git://github.com/damalaga/ckanext-malaga#egg=ckanext-malaga
 
 ckan.plugins = .... malaga
 
-'#indica donde se encuentra la entrada "aplicaciones" del menú
+indica donde se encuentra la entrada "aplicaciones" del menú
 ckan_mlg.apl_url = aplicaciones.html 
 
-'#################
-'#Configuración para la federación en datos.gob.es
-'#iruiz: Relacionados con la federacion
-'#ubicacion del fichero federador que se va a rellenar
+''#################
+#Configuración para la federación en datos.gob.es
+''#iruiz: Relacionados con la federacion
+#ubicacion del fichero federador que se va a rellenar
 ckan_mlg.federador_rdf_write = /home/ckan/ckan/lib/default/src/ckanext-malaga/ckanext/malaga/theme/templates/local/federador.rdf
-'#URL del fichero federador que se va a recuperar sin generar
+#URL del fichero federador que se va a recuperar sin generar
 ckan_mlg.federador_rdf_url = http://ckan20/local/federador.rdf
-'#ubicacion del rdf que se usa para la federacion
+#ubicacion del rdf que se usa para la federacion
 ckan_mlg.federador_template = local/plantillafederacion.rdf
-'#################
+#################
 
 '# Fichero de licencias
 licenses_group_url = file:///home/ckan/ckan/lib/default/src/ckanext-malaga/ckanext/malaga/public/licencias.json
