@@ -23,10 +23,10 @@ ckanext-malaga es la extensión que hemos desarrollado para publicar el [Portal 
 Añadir en el fichero .ini estas lineas y, a continuacion reiniciar apache2:
 
 \#Añadimos la extension
-<code>ckan.plugins = .... malaga</code>
+<p><code>ckan.plugins = .... malaga</p>
 #indica donde se encuentra la entrada "aplicaciones" del menú
 ckan_mlg.apl_url = aplicaciones.html 
-</code>
+
 \#################
 <p>\#Ubicacion de los ficheros usados en el proceso de federacion
 <p>\#ubicacion del fichero federador que se va a rellenar
@@ -39,7 +39,7 @@ ckan_mlg.apl_url = aplicaciones.html
 
 \# Fichero de licencias
 licenses_group_url = file:///home/ckan/ckan/lib/default/src/ckanext-malaga/ckanext/malaga/public/licencias.json
-
+</code>
 
 ##NOTAS
 
