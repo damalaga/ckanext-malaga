@@ -11,13 +11,13 @@ ckanext-malaga es la extensión que hemos desarrollado para publicar el [Portal 
 
 ###Instalación
 
-* Conectase a la máquina con el usuario de ckan.
+* * * Conectase a la máquina con el usuario de ckan.
 * Ir al directorio de instalación de la extensión (en nuestro caso):
 cd ckan/lib/default/src
 * Activar el entorno
 . /usr/lib/ckan/default/bin/activate
 * Descargar e instalar la extensión:
-pip install -e git+git://github.com/damalaga/ckanext-malaga#egg=ckanext-malaga
+<p>pip install -e git+git://github.com/damalaga/ckanext-malaga#egg=ckanext-malaga</p>
 
 ###Configuración
 
@@ -25,21 +25,21 @@ pip install -e git+git://github.com/damalaga/ckanext-malaga#egg=ckanext-malaga
 
 ckan.plugins = .... malaga
 
-indica donde se encuentra la entrada "aplicaciones" del menú
+\#indica donde se encuentra la entrada "aplicaciones" del menú
 ckan_mlg.apl_url = aplicaciones.html 
 
-''#################
-#Configuración para la federación en datos.gob.es
-''#iruiz: Relacionados con la federacion
-#ubicacion del fichero federador que se va a rellenar
+\#################
+\#Configuración para la federación en datos.gob.es
+\#iruiz: Relacionados con la federacion
+\#ubicacion del fichero federador que se va a rellenar
 ckan_mlg.federador_rdf_write = /home/ckan/ckan/lib/default/src/ckanext-malaga/ckanext/malaga/theme/templates/local/federador.rdf
-#URL del fichero federador que se va a recuperar sin generar
+\#URL del fichero federador que se va a recuperar sin generar
 ckan_mlg.federador_rdf_url = http://ckan20/local/federador.rdf
-#ubicacion del rdf que se usa para la federacion
+\#ubicacion del rdf que se usa para la federacion
 ckan_mlg.federador_template = local/plantillafederacion.rdf
-#################
+\#################
 
-'# Fichero de licencias
+\# Fichero de licencias
 licenses_group_url = file:///home/ckan/ckan/lib/default/src/ckanext-malaga/ckanext/malaga/public/licencias.json
 
 2. Reiniciar apache2
