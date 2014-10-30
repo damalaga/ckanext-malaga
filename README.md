@@ -44,3 +44,8 @@ licenses_group_url = file:///home/ckan/ckan/lib/default/src/ckanext-malaga/ckane
 1. El tablero grupos/organizaciones de la pantalla principal no es compatible con Internet Explorer.
 2. Los grupos y organizaciones están clasificados según nuestras necesidades, los iconos sólo aparecen si los grupos y organizaciones existen, en otro caso, no aparecerá ninguna imagen.
 
+##GENERACIÓN DE federador.rdf:
+
+Llamar a la siguiente URL para generar el fichero federador.rdf: http://dominio/local/generador. El resultado es el fichero federador.rdf que se escribe en la ruta indicada por la variable <code>ckan_mlg.federador_rdf_write</code> del fichero .ini
+
+La ruta <code>ckan_mlg.federador_rdf_write</code> debe ser accesible vía web y no debe estar dentro del ámbito de ckan, para que el controlador de rdfs que trae CKAN no actúe en la llamada.
