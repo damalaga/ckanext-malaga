@@ -29,12 +29,11 @@ ckan.plugins = .... malaga
 ckan_mlg.apl_url = aplicaciones.html 
 #################
 #Ubicacion de los ficheros usados en el proceso de federacion
-#ubicacion del fichero federador que se va a rellenar
-ckan_mlg.federador_rdf_write = /home/ckan/ckan/lib/default/src/ckanext-malaga/ckanext/malaga/theme/templates/local/federador.rdf
-#URL del fichero federador que se va a recuperar sin generar
-ckan_mlg.federador_rdf_url = http://ckan20/local/federador.rdf
-#ubicacion del rdf que se usa para la federacion
-ckan_mlg.federador_template = local/plantillafederacion.rdf
+ckan_mlg.federador_rdf_write = #ubicacion del fichero federador que se va a rellenar (en nuestro caso es  /home/ckan/ckan/lib/default/src/ckanext-malaga/ckanext/malaga/theme/templates/local/federador.rdf)
+ckan_mlg.federador_rdf_url = #URL del fichero federador que se va a recuperar sin generar (en nuestro caso es http://localhost/local/federador.rdf
+ckan_mlg.federador_template = #ubicacion del rdf que se usa para la federacion( en nuestro caso es local/plantillafederacion.rdf)
+ckan_mlg.federador_htmlresponse = #dejar vacío, desaparece en la siguiente version
+
 #################
 # Fichero de licencias
 licenses_group_url = file:///home/ckan/ckan/lib/default/src/ckanext-malaga/ckanext/malaga/public/licencias.json
