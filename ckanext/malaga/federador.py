@@ -4,11 +4,21 @@
 # @email        datosabiertos@malaga.eu
 #
 # 
+# Funciones utiles para la federacion en datos.gob.es.
+# Esta libreria la usa el fichero rdf para obtener datos
 
 
 import ckan.plugins as p
 import ckan.plugins.toolkit as toolkit
 import plugin as mlgplugin
+import pylons.config as config 
+
+
+# mlg_federador_value: Devuelve el valor estatico que 'val' tiene en el fichero .ini
+# mlg_federador_value: Return 'val' static value on .ini file
+
+def mlg_federador_value(val):
+	return config[val]
 
 # mlg_fed_total_resources_size: Devuelve la suma de bytes de todos los ficheros de recursos
 # mlg_fed_total_resources_size: Returns bytes sum of resources

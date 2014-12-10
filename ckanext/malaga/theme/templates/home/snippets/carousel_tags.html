@@ -1,7 +1,0 @@
-{% set tags = h.get_facet_items_dict('tags', limit=6) %}
-<div class="mlg-carrusel-tag" style="background-image:url(/images/home-slider/etiquetaspopulares.png)">
-  {% for tag in tags %}
-  <a href="{% url_for controller='package', action='search', tags=tag.name %}"><b>{{ tag.count }}</b> {{ h.truncate(tag.display_name, 22) }} </a>
-{% endfor %}
-</div>
-

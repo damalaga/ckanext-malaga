@@ -8,6 +8,8 @@
 import ckan.plugins as p
 from ckan.lib.base import BaseController
 
+import federador as fed
+
 
 # imports used on rdf render
 import ckan.lib.accept as accept
@@ -18,7 +20,10 @@ from ckan.lib.base import (request,
                            model,
                            abort, h, g, c)
 
+
 class GenerarRDF(BaseController):
+
+
 	def generar(self,fname, template):
 
 		import os

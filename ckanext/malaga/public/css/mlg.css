@@ -382,17 +382,9 @@ color: #00557d;
 font-size:30px;
 }
 
-.ie7 .mlg-home-grupos-org {
-display:none;
-}
+.mlg-home-grupos-org{
+height: 240px;}
 
-.ie9 .mlg-home-grupos-org {
-display:none;
-}
-
-.ie10 .mlg-home-grupos-org {
-display:none;
-}
 
 .mlg-home-grupos-org h3{
 text-align: left;
@@ -422,7 +414,7 @@ padding-bottom: 30px;
 }
 
 .mlg-img-iconos li {
-display: inline-block;
+display: inline;
 white-space: nowrap;
 padding-left:8px;
 }
