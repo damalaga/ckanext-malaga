@@ -53,6 +53,7 @@ ckan_mlg.license_res = #etiqueta license
 licenses_group_url = # Fichero de licencias en nuestro caso seria file:///home/ckan/ckan/lib/default/src/ckanext-malaga/ckanext/malaga/public/licencias.json
 </code></pre>
 
+
 ##PROCESO DE FEDERACIÓN:
 
 El proceso que genera el fichero rdf puede llegar a tardar varios minutos, dependiendo del tamaño del catálogo de datos.
