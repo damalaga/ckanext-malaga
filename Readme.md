@@ -1,3 +1,6 @@
+<img src="https://github.com/damalaga/ckanext-malaga/blob/master/ckanext/malaga/public/images/logoportaldatosabiertos.png" /><span>&nbsp</span>![Logo datos abiertos Málaga](https://github.com/damalaga/ckanext-malaga/blob/master/ckanext/malaga/public/images/logoportaldatosabiertos.png)
+
+
 ckanext-malaga
 ==============
 
@@ -13,17 +16,17 @@ ckanext-malaga es la extensión que hemos desarrollado para adaptar la plataform
 * Entrada "aplicaciones" con el listado de aplicaciones que usan nuestros catálogo de datos.
 * Tablero de grupos y organizaciones.
 
-###Instalación de ckanext-malaga
+###Descarga de la extensión
 
 * Conectarse a la máquina de CKAN con el usuario de ckan.
 * Ir al directorio de instalación de la extensión (en nuestro caso):
 <p>cd ckan/lib/default/src</p>
 * Activar el entorno
 <p>\. /usr/lib/ckan/default/bin/activate</p>
-* Descargar e instalar la extensión:
-<p>pip install -e git+git://github.com/damalaga/ckanext-malaga#egg=ckanext-malaga</p>
+* Clonar la extensión
+<p>git clone https://github.com/damalaga/ckanext-malaga#egg=ckanext-malaga</p>
 
-###Configuración
+###Configuración de la extensión
 Añadir en el fichero .ini estas lineas y, a continuacion, reiniciar apache2:
 <pre>
 <code>
