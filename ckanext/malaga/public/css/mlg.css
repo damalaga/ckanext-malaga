@@ -171,7 +171,6 @@ margin: 0 0 12px;
 
 .malaga-soporte-tecnico {span4; width:400px; margin-left:10px; margin-right:30px; text-align:left}
 
-.malaga-footer-nav ul li {display:inline; padding-right:40px}
 .malaga-footer-nav a {color:#FFFFFF}
 
 .page-heading {font-size:20px}
@@ -215,6 +214,8 @@ margin: 0 0 12px;
 	color: #ffffff;
 	padding: 20px 0;
 }
+
+.malaga-site-footer a{ color:white;}
 
 .mlg-menu {
 padding-top:20px;
@@ -295,9 +296,22 @@ font-weight: bold;
 
 .mlg-module-content{
 background-image: none;
-height: 570px;
+height: auto;
 padding: 0 25px;
 margin: 20px 0;
+}
+
+.mlg-module-content-app{
+background-image: none;
+height: 1390px;
+padding: 0 25px;
+margin: 20px 0;
+}
+
+
+
+.mlg-lista-aplicaciones{
+padding-top:20px;
 }
 
 .mlg-site-aplicaciones {
@@ -308,7 +322,9 @@ height: 140px;
 font-size: 14px;
 font-weight: normal;
 text-align: left;
-padding-top:20px;
+padding-top:10px;
+display: flex;
+margin-right:10px;
 }
 
 .mlg-aplicaciones-intro {
@@ -317,8 +333,29 @@ padding-bottom: 20px;
 
 .mlg-item-aplicaciones {
 float:left;
-padding-bottom:20px;
+padding:10px 0 10px 0;
+background-color:#F6F6F6;
+width: 100%;
+margin-bottom: 20px;
 }
+
+.mlg-tiendas-aplicaciones img{
+padding-top:10px;
+padding-right:10px;
+}
+
+.mlg-logo-aplicaciones{
+width:15%; 
+float:left; 
+padding-right:20px;
+margin-left:10px;
+}
+
+.mlg-item-aplicaciones h3{
+margin-top:0px;
+margin-bottom:0px;
+}
+
 /***************************************************************/
 /* malaga-carrusel-tag-stat INI*/
 
@@ -382,17 +419,9 @@ color: #00557d;
 font-size:30px;
 }
 
-.ie7 .mlg-home-grupos-org {
-display:none;
-}
+.mlg-home-grupos-org{
+height: 240px;}
 
-.ie9 .mlg-home-grupos-org {
-display:none;
-}
-
-.ie10 .mlg-home-grupos-org {
-display:none;
-}
 
 .mlg-home-grupos-org h3{
 text-align: left;
@@ -422,7 +451,7 @@ padding-bottom: 30px;
 }
 
 .mlg-img-iconos li {
-display: inline-block;
+display: inline;
 white-space: nowrap;
 padding-left:8px;
 }

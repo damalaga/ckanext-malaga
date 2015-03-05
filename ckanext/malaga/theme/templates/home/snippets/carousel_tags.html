@@ -1,7 +1,17 @@
-{% set tags = h.get_facet_items_dict('tags', limit=6) %}
+
 <div class="mlg-carrusel-tag" style="background-image:url(/images/home-slider/etiquetaspopulares.png)">
-  {% for tag in tags %}
-  <a href="{% url_for controller='package', action='search', tags=tag.name %}"><b>{{ tag.count }}</b> {{ h.truncate(tag.display_name, 22) }} </a>
-{% endfor %}
+  
+  <a href="/dataset?tags=agenda+21"><b>82</b> agenda 21 </a>
+
+  <a href="/dataset?tags=plano"><b>77</b> plano </a>
+
+  <a href="/dataset?tags=cartograf%C3%ADa"><b>69</b> cartografía </a>
+
+  <a href="/dataset?tags=callejero"><b>69</b> callejero </a>
+
+  <a href="/dataset?tags=territorio"><b>64</b> territorio </a>
+
+  <a href="/dataset?tags=barrio"><b>59</b> barrio </a>
+
 </div>
 

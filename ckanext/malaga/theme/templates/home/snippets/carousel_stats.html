@@ -1,23 +1,23 @@
-{% set stats = h.get_site_statistics() %}
+
 <div class="mlg-carrusel-stat" style="background-image:url(/images/home-slider/estadistica.png)">
-<a href="{{ h.url_for(controller='package', action='search') }}">
-  <b>{{ h.SI_number_span(stats.dataset_count) }}</b>
-  {{ _('dataset') if stats.dataset_count == 1 else _('datasets') }}
+<a href="/dataset">
+  <b><span>323</span></b>
+  conjuntos de datos
 </a>
-<a href="{{ h.url_for(controller='package', action='search') }}">
-  <b>{{ h.mlg_count_resources() }}</b>
+<a href="/dataset">
+  <b>390</b>
   Recursos
 </a>
-<a href="{{ h.url_for(controller='organization', action='index') }}">
-  <b>{{ h.SI_number_span(stats.organization_count) }}</b>
-  {{ _('organization') if stats.organization_count == 1 else _('organizations') }}
+<a href="/organization">
+  <b><span>9</span></b>
+  Organizaciones
 </a>
-<a href="{{ h.url_for(controller='group', action='index') }}">
-  <b>{{ h.SI_number_span(stats.group_count) }}</b>
-  {{ _('group') if stats.group_count == 1 else _('groups') }}
+<a href="/group">
+  <b><span>22</span></b>
+  grupos
 </a>
-<a href="{{ h.url_for(controller='related', action='dashboard') }}">
-  <b>{{ h.SI_number_span(stats.related_count) }}</b>
-  {{ _('related item') if stats.related_count == 1 else _('related items') }}
+<a href="/related">
+  <b><span>10</span></b>
+  Elementos relacionados
 </a>
 </div>
