@@ -1,3 +1,9 @@
+<<<<<<< HEAD
+=======
+![Logo datos abiertos Málaga](https://github.com/damalaga/ckanext-malaga/blob/master/ckanext/malaga/public/images/logoportaldatosabiertos.png)
+
+
+>>>>>>> 84e1b02d4c6c9fdbcd1791f01847c8e1549e5de6
 ckanext-malaga
 ==============
 
@@ -13,17 +19,28 @@ ckanext-malaga es la extensión que hemos desarrollado para adaptar la plataform
 * Entrada "aplicaciones" con el listado de aplicaciones que usan nuestros catálogo de datos.
 * Tablero de grupos y organizaciones.
 
+<<<<<<< HEAD
 ###Instalación de ckanext-malaga
+=======
+###Descarga de la extensión
+>>>>>>> 84e1b02d4c6c9fdbcd1791f01847c8e1549e5de6
 
 * Conectarse a la máquina de CKAN con el usuario de ckan.
 * Ir al directorio de instalación de la extensión (en nuestro caso):
 <p>cd ckan/lib/default/src</p>
 * Activar el entorno
 <p>\. /usr/lib/ckan/default/bin/activate</p>
+<<<<<<< HEAD
 * Descargar e instalar la extensión:
 <p>pip install -e git+git://github.com/damalaga/ckanext-malaga#egg=ckanext-malaga</p>
 
 ###Configuración
+=======
+* Clonar la extensión
+<p>git clone https://github.com/damalaga/ckanext-malaga#egg=ckanext-malaga</p>
+
+###Configuración de la extensión
+>>>>>>> 84e1b02d4c6c9fdbcd1791f01847c8e1549e5de6
 Añadir en el fichero .ini estas lineas y, a continuacion, reiniciar apache2:
 <pre>
 <code>
@@ -51,7 +68,12 @@ ckan_mlg.license_res = #etiqueta license
 
 #configuracion relacionada con el fichero de licencia
 licenses_group_url = # Fichero de licencias en nuestro caso seria file:///home/ckan/ckan/lib/default/src/ckanext-malaga/ckanext/malaga/public/licencias.json
+<<<<<<< HEAD
 </code></pre>
+=======
+</code>
+</pre>
+>>>>>>> 84e1b02d4c6c9fdbcd1791f01847c8e1549e5de6
 
 ##PROCESO DE FEDERACIÓN:
 
@@ -87,3 +109,12 @@ Inicialmente se recopilan los grupos y organizaciones del portal. Cada grupo/org
 
 Las imágenes de los grupos y organizaciones están clasificados según nuestras necesidades, por lo que los iconos sólo aparecen si los grupos y organizaciones existen, en otro caso, no aparecerá ninguna imagen.
 
+<<<<<<< HEAD
+=======
+##Licencia:
+
+El código de esta aplicación puede ser reutilizado, modificado y adaptado a las necesidades de los distintos portales de forma libre. Si utilizas nuestro código o parte de él, por favor, incluye nuestro logo en el cabecero o pie de página a modo de reconocimiento a Datos abiertos Málaga. Gracias! 
+
+
+![Logo datos abiertos Málaga](https://github.com/damalaga/ckanext-malaga/blob/master/ckanext/malaga/public/images/logoportaldatosabiertos.png)
+>>>>>>> 84e1b02d4c6c9fdbcd1791f01847c8e1549e5de6
