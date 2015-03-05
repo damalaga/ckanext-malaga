@@ -1,9 +1,5 @@
-<<<<<<< HEAD
-=======
+
 ![Logo datos abiertos Málaga](https://github.com/damalaga/ckanext-malaga/blob/master/ckanext/malaga/public/images/logoportaldatosabiertos.png)
-
-
->>>>>>> 84e1b02d4c6c9fdbcd1791f01847c8e1549e5de6
 ckanext-malaga
 ==============
 
@@ -11,26 +7,27 @@ El [Portal de Datos Abiertos del Ayuntamiento de Málaga](http://datosabiertos.m
 
 [CKAN](http://ckan.org) es un portal de código abierto, diseñado y desarrolado para que los gobiernos locales y estatales puedan publicar y compartir su datos abiertos fácilmente. Actualmente [http://datosabiertos.malaga.eu](http://datosabiertos.malaga.eu) tiene la versión CKAN 2.2.a.
 
-ckanext-malaga es la extensión que hemos desarrollado para adaptar la plataforma a nuestras necesidades. Esto incluye dos funcionalidades principalmente.
+ckanext-malaga es la extensión que hemos desarrollado para adaptar la plataforma a nuestras necesidades. Esto incluye las siguientes funcionalidades.
+
+##Requisitos
+* ckanext-malaga usa la extesión [ckanext-contact](https://github.com/damalaga/ckanext-contact), por lo que tiene que estar instalada también. Esta extensión permite crear un formulario de contacto y ha sido desarrollada por [nuestro equipo](https://github.com/damalaga/)
 
 ##Funcionalidades implementadas:
 * Carrusel de la pantalla principal con bootstrap.
 * Federación de datos con datos.gob.es
 * Entrada "aplicaciones" con el listado de aplicaciones que usan nuestros catálogo de datos.
 * Tablero de grupos y organizaciones.
+* Formulario de contacto usando la extensión ckanext-contact.
 
-<<<<<<< HEAD
 ###Instalación de ckanext-malaga
 =======
 ###Descarga de la extensión
->>>>>>> 84e1b02d4c6c9fdbcd1791f01847c8e1549e5de6
 
 * Conectarse a la máquina de CKAN con el usuario de ckan.
 * Ir al directorio de instalación de la extensión (en nuestro caso):
 <p>cd ckan/lib/default/src</p>
 * Activar el entorno
 <p>\. /usr/lib/ckan/default/bin/activate</p>
-<<<<<<< HEAD
 * Descargar e instalar la extensión:
 <p>pip install -e git+git://github.com/damalaga/ckanext-malaga#egg=ckanext-malaga</p>
 
@@ -40,7 +37,6 @@ ckanext-malaga es la extensión que hemos desarrollado para adaptar la plataform
 <p>git clone https://github.com/damalaga/ckanext-malaga#egg=ckanext-malaga</p>
 
 ###Configuración de la extensión
->>>>>>> 84e1b02d4c6c9fdbcd1791f01847c8e1549e5de6
 Añadir en el fichero .ini estas lineas y, a continuacion, reiniciar apache2:
 <pre>
 <code>
@@ -109,7 +105,9 @@ Inicialmente se recopilan los grupos y organizaciones del portal. Cada grupo/org
 
 Las imágenes de los grupos y organizaciones están clasificados según nuestras necesidades, por lo que los iconos sólo aparecen si los grupos y organizaciones existen, en otro caso, no aparecerá ninguna imagen.
 
-<<<<<<< HEAD
+## FORMULARIO DE CONTACTO
+Los desarrolladores que usen nuestra API, pueden rellenar un formulario de contacto para que demos de alta su aplicación en nuestra página de "aplicaciones disponibles", para ello, hemos usado una extensión que hemos desarrollado y que está disponible en (https://github.com/damalaga/ckanext-contact)
+
 =======
 ##Licencia:
 
@@ -117,4 +115,3 @@ El código de esta aplicación puede ser reutilizado, modificado y adaptado a la
 
 
 ![Logo datos abiertos Málaga](https://github.com/damalaga/ckanext-malaga/blob/master/ckanext/malaga/public/images/logoportaldatosabiertos.png)
->>>>>>> 84e1b02d4c6c9fdbcd1791f01847c8e1549e5de6
