@@ -10,14 +10,14 @@ El [Portal de Datos Abiertos del Ayuntamiento de Málaga](http://datosabiertos.m
 ckanext-malaga es la extensión que hemos desarrollado para adaptar la plataforma a nuestras necesidades. Esto incluye las siguientes funcionalidades.
 
 ##Requisitos
-* ckanext-malaga usa la extesión [ckanext-contact](https://github.com/damalaga/ckanext-contact), por lo que tiene que estar instalada también. Esta extensión permite crear un formulario de contacto y ha sido desarrollada por [nuestro equipo](https://github.com/damalaga/)
+* ckanext-malaga usa la extesión [ckanext-contacto](https://github.com/damalaga/ckanext-contacto), por lo que tiene que estar instalada también. Esta extensión permite crear un formulario de contacto y ha sido desarrollada por [nuestro equipo](https://github.com/damalaga/)
 
 ##Funcionalidades implementadas:
 * Carrusel de la pantalla principal con bootstrap.
 * Federación de datos con datos.gob.es
 * Entrada "aplicaciones" con el listado de aplicaciones que usan nuestros catálogo de datos.
 * Tablero de grupos y organizaciones.
-* Formulario de contacto usando la extensión ckanext-contact.
+* Formulario de contacto usando la extensión ckanext-contacto.
 
 ###Instalación de ckanext-malaga
 =======
@@ -115,3 +115,4 @@ El código de esta aplicación puede ser reutilizado, modificado y adaptado a la
 
 
 ![Logo datos abiertos Málaga](https://github.com/damalaga/ckanext-malaga/blob/master/ckanext/malaga/public/images/logoportaldatosabiertos.png)
+
