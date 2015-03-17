@@ -11,7 +11,7 @@ ckanext-malaga es la extensión que hemos desarrollado para adaptar la plataform
 
 ##Instalación y configuración del portal de datos abiertos.
 Los pasos para reproducir el portal de datos abiertos del Ayuntamiento de Málaga son los siguientes:
-1- Instalar Ubuntu 14.04.2 en una máquina.
+#Instalar Ubuntu 14.04.2 en una máquina.
 2- Instalar la última versión de CKAN disponible en formato "instalar desde fuente", las instrucciones se encuentran en este enlace [CKAN install from source](http://docs.ckan.org/en/latest/maintaining/installing/install-from-source.html).
 3- Seguir los pasos que explicamos a continuación.
 NOTA:
