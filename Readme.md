@@ -69,7 +69,7 @@ licenses_group_url = # Fichero de licencias en nuestro caso seria file:///home/c
 =======
 </code>
 </pre>
->>>>>>> 84e1b02d4c6c9fdbcd1791f01847c8e1549e5de6
+
 
 ##PROCESO DE FEDERACIÓN:
 
