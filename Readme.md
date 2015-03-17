@@ -14,8 +14,7 @@ Los pasos para reproducir el portal de datos abiertos del Ayuntamiento de Málag
 * Instalar Ubuntu 14.04.2 en una máquina.
 * Instalar la última versión de CKAN disponible en formato "instalar desde fuente", las instrucciones se encuentran en este enlace [CKAN install from source](http://docs.ckan.org/en/latest/maintaining/installing/install-from-source.html).
 * Seguir los pasos que explicamos a continuación.
-NOTA:
-* Los iconos de grupos y organizaciones que proporcionamos en este repositorio se corresponde con la categorización requerida según la NTI (http://www.boe.es/boe/dias/2013/03/04/pdfs/BOE-A-2013-2380.pdf) y que son imprescindibles para la federación de los datos en (http://datos.gob.es/catalogo).
+* NOTA: Los iconos de grupos y organizaciones que proporcionamos en este repositorio se corresponde con la categorización requerida según la NTI (http://www.boe.es/boe/dias/2013/03/04/pdfs/BOE-A-2013-2380.pdf) y que son imprescindibles para la federación de los datos en (http://datos.gob.es/catalogo).
 
 ##Requisitos
 * ckanext-malaga usa la extesión [ckanext-contacto](https://github.com/damalaga/ckanext-contacto), por lo que tiene que estar instalada también. Esta extensión permite crear un formulario de contacto y ha sido desarrollada por [nuestro equipo](https://github.com/damalaga/)
