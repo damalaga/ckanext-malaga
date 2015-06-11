@@ -3,7 +3,7 @@
 ckanext-malaga
 ==============
 
-##IMPORTANTE:
+<b>IMPORTANTE:</b>
 Esta extensión funciona sobre la versión CKAN 2.2.a y anteriores, para versiones CKAN 2.3 y superiores esta versión NO ES COMPATIBLE, debido a las modificaciones de la API de CKAN.
 Para usar la extensión ckanext-malaga en CKAN 2.3 o superiores, deberá usar la rama pertinente de este repositorio.
 
@@ -43,6 +43,8 @@ Los pasos para reproducir el portal de datos abiertos del Ayuntamiento de Málag
 <p>cd ckan/lib/default/src</p>
 * Clonar la extensión
 <p>git clone https://github.com/damalaga/ckanext-malaga</p>
+* Desplegarla
+<p>python setup.py develop</p>
 
 ###Configuración de la extensión
 Añadir en el fichero .ini estas lineas y, a continuacion, reiniciar apache2:
