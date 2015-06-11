@@ -3,11 +3,19 @@
 ckanext-malaga
 ==============
 
+##IMPORTANTE:
+Esta extensión funciona sobre la versión CKAN 2.2.a y anteriores, para versiones CKAN 2.3 y superiores esta versión NO ES COMPATIBLE, debido a las modificaciones de la API de CKAN.
+Para usar la extensión ckanext-malaga en CKAN 2.3 o superiores, deberá usar la rama pertinente de este repositorio.
+
 El [Portal de Datos Abiertos del Ayuntamiento de Málaga](http://datosabiertos.malaga.eu) se ha implantado a partir de la plataforma CKAN.
 
-[CKAN](http://ckan.org) es un portal de código abierto, diseñado y desarrolado para que los gobiernos locales y estatales puedan publicar y compartir su datos abiertos fácilmente. Actualmente [http://datosabiertos.malaga.eu](http://datosabiertos.malaga.eu) tiene la versión CKAN 2.2.a. instalada desde fuentes (http://docs.ckan.org/en/latest/maintaining/installing/install-from-source.html)
+[CKAN](http://ckan.org) es un portal de código abierto, diseñado y desarrolado para que los gobiernos locales y estatales puedan publicar y compartir su datos abiertos fácilmente. 
+
+Está instalada desde fuentes (http://docs.ckan.org/en/latest/maintaining/installing/install-from-source.html)
 
 ckanext-malaga es la extensión que hemos desarrollado para adaptar la plataforma a nuestras necesidades. Esto incluye las siguientes funcionalidades.
+
+##
 
 ##Instalación y configuración del portal de datos abiertos.
 Los pasos para reproducir el portal de datos abiertos del Ayuntamiento de Málaga son los siguientes:
@@ -33,15 +41,8 @@ Los pasos para reproducir el portal de datos abiertos del Ayuntamiento de Málag
 * Conectarse a la máquina de CKAN con el usuario de ckan.
 * Ir al directorio de instalación de la extensión (en nuestro caso):
 <p>cd ckan/lib/default/src</p>
-* Activar el entorno
-<p>\. /usr/lib/ckan/default/bin/activate</p>
-* Descargar e instalar la extensión:
-<p>pip install -e git+git://github.com/damalaga/ckanext-malaga#egg=ckanext-malaga</p>
-
-###Configuración
-=======
 * Clonar la extensión
-<p>git clone https://github.com/damalaga/ckanext-malaga#egg=ckanext-malaga</p>
+<p>git clone https://github.com/damalaga/ckanext-malaga</p>
 
 ###Configuración de la extensión
 Añadir en el fichero .ini estas lineas y, a continuacion, reiniciar apache2:
@@ -71,9 +72,7 @@ ckan_mlg.license_res = #etiqueta license
 
 #configuracion relacionada con el fichero de licencia
 licenses_group_url = # Fichero de licencias en nuestro caso seria file:///home/ckan/ckan/lib/default/src/ckanext-malaga/ckanext/malaga/public/licencias.json
-<<<<<<< HEAD
 </code></pre>
-=======
 </code>
 </pre>
 
