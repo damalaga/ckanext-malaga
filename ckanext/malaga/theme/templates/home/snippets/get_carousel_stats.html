@@ -5,7 +5,7 @@
   {{ _('dataset') if stats.dataset_count == 1 else _('datasets') }}
 </a>
 <a href="{{ h.url_for(controller='package', action='search') }}">
-  <b>{{ h.mlg_count_resources() }}</b>
+  <b>{{h.mlg_count_resources()}}</b>
   Recursos
 </a>
 <a href="{{ h.url_for(controller='organization', action='index') }}">

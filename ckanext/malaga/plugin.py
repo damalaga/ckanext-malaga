@@ -20,18 +20,41 @@ import ckan.lib.helpers as ckanhelper
 
 import operator #usado para ordenar los tags en orden ascendente // used asc tags order
 
+#ckan2.3
+# mlg_ds_list: Devuelve la lista de datasets 
+# mlg_ds_list: Returns datasets name list
+def mlg_ds_list():
+	return toolkit.get_action('package_list')(data_dict={})
+
+#ckan2.3	
 # mlg_count_resources: Devuelve el numero de recursos.
 # mlg_count_resources: Returns numbers of resources
 def mlg_count_resources():
-
-	data_dict = {}
-	
-	resources = toolkit.get_action('current_package_list_with_resources')(data_dict=data_dict)
+	ds = mlg_ds_list()
 	count = 0
-	for resource in resources:
-		count = count + resource['num_resources']
-
+	for dsname in ds:
+		data_dict = {'id':dsname}
+		dsitem = toolkit.get_action('package_show')(data_dict=data_dict)
+		count = count + dsitem['num_resources']
 	return count
+
+#ckan2.3
+#mlg_top_tags: Devuelve las etiquetas más usadas, recibe el numero de etiquetas que tiene que devolver, si no recibe nada, devuelve 10 etiquetas.
+# usa la libreria de estadisticas que trae ckan.
+#mlg_top_tags: Returns most used tags, it recieve numbers of max tags to return, if not, by default, returns 10 tags.
+# This function uses stats CKAN library.
+def mlg_top_tags(showtags=10):
+	import ckanext.stats.stats as ckanstats
+
+	classtags = ckanstats.Stats()
+	return classtags.top_tags(limit=showtags)
+
+#ckan2.3
+def mlg_ds_resources_list(dsname):
+
+	data_dict = {'id':dsname}
+	return toolkit.get_action('package_show')(data_dict=data_dict)
+			
 
 # mlg_tracking_summary: Recibe un identificador de dataset en iddataset
 # devuelve el numero de visitas recientes (tracking_summary['recent'])
@@ -65,10 +88,6 @@ def mlg_cur_datetime (self):
 	return today[:10]+'T'+today[11:19]
 
 
-# mlg_datasets_resources_list: Devuelve una lista de datasets con sus recursos
-# mlg_datasets_resources_list: Returns a list of datasets and their resources
-def mlg_datasets_resources_list():
-	return toolkit.get_action('current_package_list_with_resources')(data_dict={})
 
 # mlg_group_list: Devuelve una lista con los grupos
 # mlg_group_list: Returns list of groups 
@@ -81,22 +100,6 @@ def mlg_group_list():
 def mlg_organization_list():
 	data_dict = {'all_fields': True} #all_fields returns each group field (name, url, image,...).
 	return toolkit.get_action('organization_list')(data_dict=data_dict)
-
-# mlg_get_most_used_tags: Devuelve una lista de las etiquetas mas usadas y el numero de items que la usan
-# mlg_get_most_used_tags: Returns list of the most used tags, and numbers of items
-def mlg_get_most_used_tags(limit):
-	lists = mlg_datasets_resources_list()
-	hashtags = {}
-	for ds in lists:
-		if ds['tags']:
-			for item in ds['tags']:
-				if item['name']:
-					if (item['name'] in hashtags):
-						hashtags[item['name']] = hashtags[item['name']] + 1
-					else:
-						hashtags[item['name']] = 1
-
-	return sorted(hashtags.items(), key=operator.itemgetter(1), reverse=True)[:limit]
 
 
 class malagae(p.SingletonPlugin):
@@ -152,7 +155,8 @@ class malagae(p.SingletonPlugin):
 		'mlg_fed_total_resources_size': fed.mlg_fed_total_resources_size,
 		'mlg_group_list': mlg_group_list,
 		'mlg_organization_list': mlg_organization_list,
-		'mlg_datasets_resources_list': mlg_datasets_resources_list,
-		'mlg_get_most_used_tags':mlg_get_most_used_tags,
-		'mlg_federador_value':fed.mlg_federador_value
+		'mlg_federador_value':fed.mlg_federador_value,
+		'mlg_ds_list': mlg_ds_list,
+		'mlg_top_tags': mlg_top_tags,
+		'mlg_ds_resources_list': mlg_ds_resources_list
 }

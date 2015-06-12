@@ -1,0 +1,45 @@
+<footer class="navbar navbar-static-top masthead mlg-navbar">
+  {% block header_debug %}
+    {% if g.debug and not g.debug_supress_header %}
+      <div class="debug">Controller : {{ c.controller }}<br/>Action : {{ c.action }}</div>
+    {% endif %}
+  {% endblock %}
+
+<!--ini footerckan.html -->
+  <div class="site-footer mlg-container">
+    {% block footer_content %}
+   <div class="container" style="padding-top:10px">
+	<div class="container">
+    <button data-target="#nav-collapse-footer" data-toggle="collapse" class="btn btn-navbar" type="button" id="button-mlg-responsive-footer">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+	  <div class="span7 mlg-ckan-footer nav-collapse collapse" id="nav-collapse-footer">
+		<div class="section navigation" style="float:left">
+		   <ul class="nav nav-pills mlg-ckan-footer">
+		   <li><a href="{{ g.site_url }}/detallestecnicos">Detalles Técnicos</a></li>
+		   <li><a href="{{ g.site_url }}/soporte">Soporte Técnico</a></li>
+		   <li><a href="{{ g.site_url }}/disponibilidad">Disponibilidad</a></li>
+		   <li><a href="http://www.malaga.eu/portal/menu/varios/avisoLegal" target="_blank">Aviso legal</a>
+		  </ul>
+		</div>
+	  </div>
+	  <div class="span2 attribution" style="float:left"><strong>Gestionado con</strong><a class="hide-text ckan-footer-logo" href="http://ckan.org">CKAN</a>
+	  </div>
+	     <div class="span2 text-center" style="float:right">
+		   <small>© Ayuntamiento de Málaga <br> 
+			<class style="color: #1377A5">Centro Municipal de Informática</small>
+	    </div>
+	</div>
+   </div>
+    {% endblock %}
+  </div>
+
+<!--fin footerckan.html -->
+
+</footer>
+
+
+
+

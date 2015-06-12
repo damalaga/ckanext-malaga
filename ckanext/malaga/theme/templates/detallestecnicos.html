@@ -3,37 +3,25 @@
 {% block subtitle %}Detalles Técnicos{% endblock %}
 
 {% block breadcrumb_content %}
-<a class=" active" href="/detallestecnicos">Detalles Técnicos</a>
+<a class=" active" href="/detallestecnicos">Detalles técnicos del portal de datos abiertos de Ayuntamiento de Málaga</a>
 {% endblock %}
-{% block primary %}
-  <article class="mlg-module-content">
-<div class="mlg-text-aplicaciones">
-	<div class="mlg-aplicaciones-intro">
-		Detalles técnicos del portal de datos abiertos de Ayuntamiento de Málaga.
-	</div>
-</div>
 
+
+{% block primary %}
+<article class="mlg-module-content-app" style="height:auto">
 <div class="mlg-lista-aplicaciones">
-	<div class="mlg-item-aplicaciones">
-		<a href="http://ckan.org" target="_blank"><img src="/images/detallestecnicos/ckan-logo.png" style="width:15%; float:left; padding-right:10px"> </a></p>
-			El portal de datos abiertos del ayuntamiento de Málaga ha sido implantado sobre la plataforma de código abierto CKAN, que es una plataforma diseñada para que los gobiernos puedan publicar y compartir su información fácilmente.
-	</div>
-	<div class="mlg-item-aplicaciones">
-		<a href="https://github.com/damalaga/ckanext-malaga" target="_blank"><img src="/images/detallestecnicos/github-logo.png" style="width:15%; float:left; padding-right:10px"> </a>
-			El aspecto corporativo del portal <a href="http://datosabiertos.malaga.eu">datosabiertos.malaga.eu</a> y la federación de nuestros datos en <a href="datos.gob.es">datos.gob.es</a> está disponible en la plataforma de desarrollo colaborativo GitHub en el enlace <a href="http://https://github.com/damalaga/ckanext-malaga"> https://github.com/damalaga/ckanext-malaga</a>
-	</div>
-	<div class="mlg-item-aplicaciones">
-		<a href="https://datos.gob.es/catalogo" target="_blank"><img src="/images/detallestecnicos/datosgobes-logo.png" style="width:15%; float:left; padding-right:10px"> </a>
-			El catálogo de datos de datos del portal <a href="http://datosabiertos.malaga.eu">datosabiertos.malaga.eu</a> está publicado en el portal de datos abiertos estatal <a href="datos.gob.es/catalogo">datos.gob.es</a>
-	</div>
-	<div class="mlg-item-aplicaciones">
-		<a href="https://data.lab.fi-ware.org/organization/malaga" target="_blank"><img src="/images/detallestecnicos/fiwarelab-logo.png" style="width:15%; float:left; padding-right:10px"> </a>
-			El catálogo de datos de datos del portal <a href="http://datosabiertos.malaga.eu">datosabiertos.malaga.eu</a> está disponible también en el portal europeo FIWARE-Lab <a href="https://data.lab.fi-ware.org/organization/malaga">FIWARE-Lab</a>
-	</div>
+    <div class="mlg-site-aplicaciones"> 
+	{% snippet 'home/snippets/detallestecnicos/detalletecnicomalaga.html' %}
+	{% snippet 'home/snippets/detallestecnicos/detalletecnicodatosgob.html' %}
+	{% snippet 'home/snippets/detallestecnicos/detalletecnicofiware.html' %}
+	{% snippet 'home/snippets/detallestecnicos/detalletecnicogithub.html' %}
+	{% snippet 'home/snippets/detallestecnicos/detalletecnicockan.html' %}
+
+    </div>
 </div>
   </article>
 {% endblock %}
+{% block secondary %}
 
-{% block secondary %}{% endblock %}
-
+{% endblock %}
 

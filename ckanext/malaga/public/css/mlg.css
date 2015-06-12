@@ -23,7 +23,7 @@
 }
 .logo img {
 	float: left;
-	padding: 10px 0px;
+	padding: 0px 0px 5px 0px;
 	margin-right: 5px;
 }
 
@@ -147,7 +147,7 @@ border: none;
 
 .masthead .section {}
 
-.masthead .navigation {font-size: 14px ; float: right; margin-right:-13px; margin-top:10px; width: 550px;}
+.masthead .navigation {font-size: 14px ; float: right; margin-right:-13px; margin-top:10px; width: auto;}
 
 .masthead .site-search input {width: 200px; padding: 4px 8px 2px; margin-left: 0px}
 
@@ -160,6 +160,7 @@ h2 {font-size:24px; margin-top:30px; margin-bottom:10px }
 
 form {
 margin: 0 0 12px;
+padding-top: 2px;
 }
 
 .malaga-media-image-homepage{height:97px}
@@ -193,9 +194,6 @@ margin: 0 0 12px;
 .module-content-malaga {
     margin: 0px;
     padding: 0px 0px;
-}
-.module-content:last-child {
-    padding-bottom: 0px;
 }
 
 .malaga-header-dataset h1 {float:left; font-size:30px; margin:3px 3px 3px 3px; margin-bottom:20px;} 
@@ -519,3 +517,8 @@ padding-bottom: 0px;
 padding-top: 0px;
 }
 
+body {
+background-image:url("");
+background-color:white;
+
+}
