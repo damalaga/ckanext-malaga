@@ -84,6 +84,12 @@ licenses_group_url = # Fichero de licencias en nuestro caso seria file:///home/c
 
 ##PROCESO DE FEDERACIÓN:
 
+<b>IMPORTANTE:</b>
+
+Esa versión de ckanext-malaga, federa en datos.gob.es para la versión de CKAN 2.3. No podemos garantizar el funcionamiento correcto para versiones anteriores a CKAN 2.3.
+
+Para federaciones con ckanext-malaga y CKAN 2.2 o anteriores, ir a la rama correspondiente.
+
 El proceso que genera el fichero rdf puede llegar a tardar varios minutos, dependiendo del tamaño del catálogo de datos.
 
 Por este motivo, hemos dividido el proceso en dos: en el primero se genera el fichero rdf y en el segundo se muestra el fichero que se ha generado previamente.
