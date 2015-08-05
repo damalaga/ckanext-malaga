@@ -16,25 +16,31 @@
 <dct:identifier>${ g.site_url }</dct:identifier>
 <dct:title xml:lang="es">${ g.site_title }</dct:title>
 <dct:description xml:lang="es">${ g.site_description }</dct:description>
-<dct:publisher rdf:resource="http://datos.gob.es/recurso/sector-publico/org/Organismo/L01290672"/>
+<dct:publisher rdf:resource="${h.mlg_federador_value('ckan_mlg.federador_publisher')}"/>
 <dct:extent>
 <dct:SizeOrDuration>
-<rdf:value rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">${h.mlg_fed_total_resources_size()}</rdf:value>
-<rdfs:label xml:lang="es">${h.mlg_fed_total_resources_size()}bytes</rdfs:label>
+<py:with vars="tsize=h.mlg_fed_total_resources_size()">
+<rdf:value rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">$tsize</rdf:value>
+<rdfs:label xml:lang="es">$tsize bytes</rdfs:label>
+</py:with>
 </dct:SizeOrDuration>
 </dct:extent>
-<dct:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2013-08-06T12:00:00</dct:issued>
+<dct:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">${h.mlg_federador_value('ckan_mlg.federador_datetime_pub')}</dct:issued>
 <dct:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">${ h.mlg_cur_datetime('') }</dct:modified>
 <dc:language>es</dc:language>
-<dct:spatial rdf:resource="http://datos.gob.es/recurso/sector-publico/territorio/provincia/malaga"/>
-<dcat:themeTaxonomy rdf:resource="http://datos.gob.es/kos/sector-publico/sector/"/>
+<dct:spatial rdf:resource="${h.mlg_federador_value('ckan_mlg.federador_spatial_res')}"/>
+<dcat:themeTaxonomy rdf:resource="${h.mlg_federador_value('ckan_mlg.federador_theme_tax')}"/>
 <foaf:homepage rdf:resource="${ g.site_url }"/>
-<dct:license rdf:resource="http://www.malaga.eu/portal/menu/varios/avisoLegal"/>
+<dct:license rdf:resource="${h.mlg_federador_value('ckan_mlg.license_res')}"/>
+<py:with vars="totalsize=0">
+<py:for each="ds_list in h.mlg_ds_list()">
+<py:with vars="ds=h.mlg_ds_resources_list(ds_list)">
+<py:if test="ds['private']==False">
 <dcat:dataset>
-<py:for each="ds in h.mlg_datasets_resources_list()">
 <dcat:Dataset rdf:about="${ h.url_for(controller='package',action='read',id=ds['name'], qualified=True)}">
 <dct:identifier>${ h.url_for(controller='package',action='read',id=ds['name'], qualified=True)}</dct:identifier>
 <dct:title xml:lang="es">${ds['title']}</dct:title>
+<dct:private xml:lang="es">${ds['private']}</dct:private>
 <dct:description xml:lang="es">${ds['notes'].replace('\n','').replace('\r',' ')}</dct:description>
 <py:for each="dato in ds['groups']">
 <dcat:theme py:with="groupname= dato['name']; urlgroup=h.url_for(controller='group',action='read',id='', qualified=True)" rdf:resource="http://datos.gob.es/kos/sector-publico/sector/${ groupname }"/></py:for>
@@ -44,11 +50,11 @@
 <dct:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">${ds['metadata_created'][:19]}</dct:issued>
 <dct:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">${ds['metadata_modified'][:19]}</dct:modified>
 <dc:language>es</dc:language>
-<dct:publisher rdf:resource="http://datos.gob.es/recurso/sector-publico/org/Organismo/L01290672"/>
+<dct:publisher rdf:resource="${h.mlg_federador_value('ckan_mlg.federador_publisher')}"/>
 <py:if test="len(ds['license_url'])>0">
 <dct:license>${ds['license_url']}</dct:license>
 </py:if>
-<dct:spatial rdf:resource="http://datos.gob.es/recurso/sector-publico/territorio/provincia/Malaga"/>
+<dct:spatial rdf:resource="${h.mlg_federador_value('ckan_mlg.federador_spatial_res')}"/>
 <dct:valid rdf:datatype="http://www.w3.org/2001/XMLSchema#date"></dct:valid>
 <py:for each="rsc_dict in ds['resources']">
 <dcat:distribution>
@@ -56,13 +62,189 @@
 <dct:identifier>${ h.url_for(controller='package',action='read',id=ds['name'], qualified=True)}/resource/${rsc_dict['id']}</dct:identifier>
 <dct:title xml:lang="es">${rsc_dict['name']}</dct:title>
 <dcat:accessURL rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">${rsc_dict['url']}</dcat:accessURL>
-<dct:format py:choose="">
-<dct:IMT py:when="rsc_dict['format']=='shp'" rdf:value="application/x-zipped-shp" rdfs:label="shp"/>
-<dct:IMT py:when="rsc_dict['format']=='PDF'" rdf:value="application/pdf" rdfs:label="PDF" />
-<dct:IMT py:when="rsc_dict['format']=='CSV'" rdf:value="text/csv" rdfs:label="CSV" />
-<dct:IMT py:when="rsc_dict['format']=='XLS'" rdf:value="application/vnd.ms-excel" rdfs:label="XLS"/>
-<dct:IMT py:otherwise="" rdf:value="${rsc_dict['mimetype']}" rdfs:label="${rsc_dict.get('format')}"/>
-</dct:format>
+ <dct:format py:choose="">
+ <dct:IMT py:when="rsc_dict['format']=='shp'" rdf:value="application/x-zipped-shp" rdfs:label="shp"/>
+<dct:IMT py:when="rsc_dict['format']=='SHP'" rdf:value="application/x-zipped-shp" rdfs:label="shp"/>
+ <dct:IMT py:when="rsc_dict['format']=='PDF'" rdf:value="application/pdf" rdfs:label="PDF" />
+<dct:IMT py:when="rsc_dict['format']=='pdf'" rdf:value="application/pdf" rdfs:label="PDF" />
+ <dct:IMT py:when="rsc_dict['format']=='CSV'" rdf:value="text/csv" rdfs:label="CSV" />
+<dct:IMT py:when="rsc_dict['format']=='csv'" rdf:value="text/csv" rdfs:label="CSV" />
+ <dct:IMT py:when="rsc_dict['format']=='XLS'" rdf:value="application/vnd.ms-excel" rdfs:label="XLS"/>
+<dct:IMT py:when="rsc_dict['format']=='xls'" rdf:value="application/vnd.ms-excel" rdfs:label="XLS"/>
+<dct:IMT py:when="rsc_dict['format']=='RDF'" rdf:value="application/rdf+xml" rdfs:label="RDF"/>
+<dct:IMT py:when="rsc_dict['format']=='rdf'" rdf:value="application/rdf+xml" rdfs:label="RDF"/>
+<dct:IMT py:when="rsc_dict['format']=='XML'" rdf:value="text/xml" rdfs:label="XML"/>
+<dct:IMT py:when="rsc_dict['format']=='xml'" rdf:value="text/xml" rdfs:label="XML"/>
+<dct:IMT py:when="rsc_dict['format']=='JSON'" rdf:value="application/json" rdfs:label="JSON"/>
+<dct:IMT py:when="rsc_dict['format']=='json'" rdf:value="application/json" rdfs:label="JSON"/>
+<dct:IMT py:when="rsc_dict['format']=='ODS'" rdf:value="application/vnd.oasis.opendocument.spreadsheet" rdfs:label="ods"/>
+<dct:IMT py:when="rsc_dict['format']=='ods'" rdf:value="application/vnd.oasis.opendocument.spreadsheet" rdfs:label="ods"/>
+<dct:IMT py:when="rsc_dict['format']=='RSS'" rdf:value="application/rss+xml" rdfs:label="rss"/>
+<dct:IMT py:when="rsc_dict['format']=='rss'" rdf:value="application/rss+xml" rdfs:label="rss"/>
+<dct:IMT py:when="rsc_dict['format']=='KML'" rdf:value="application/vnd.google-earth.kml+xml" rdfs:label="KML"/>
+<dct:IMT py:when="rsc_dict['format']=='kml'" rdf:value="application/vnd.google-earth.kml+xml" rdfs:label="KML"/>
+<dct:IMT py:when="rsc_dict['format']=='ASCII'" rdf:value="text/ascii" rdfs:label="ASCII"/>
+<dct:IMT py:when="rsc_dict['format']=='Atom'" rdf:value="application/atom+xml" rdfs:label="Atom"/>
+<dct:IMT py:when="rsc_dict['format']=='Calendar'" rdf:value="text/calendar" rdfs:label="Calendar"/>
+<dct:IMT py:when="rsc_dict['format']=='DBF'" rdf:value="application/dbf" rdfs:label="DBF"/>
+<dct:IMT py:when="rsc_dict['format']=='DGN'" rdf:value="image/vnd.dgn" rdfs:label="DGN"/>
+<dct:IMT py:when="rsc_dict['format']=='DjVu'" rdf:value="image/vnd.djvu" rdfs:label="DjVu"/>
+<dct:IMT py:when="rsc_dict['format']=='DOC'" rdf:value="application/msword" rdfs:label="DOC"/>
+<dct:IMT py:when="rsc_dict['format']=='DWG'" rdf:value="image/vnd.dwg" rdfs:label="DWG"/>
+<dct:IMT py:when="rsc_dict['format']=='DXF'" rdf:value="application/dxf" rdfs:label="DXF"/>
+<dct:IMT py:when="rsc_dict['format']=='ECW'" rdf:value="application/ecw" rdfs:label="ECW"/>
+<dct:IMT py:when="rsc_dict['format']=='GBD'" rdf:value="x-lml/x-gdb" rdfs:label="GBD"/>
+<dct:IMT py:when="rsc_dict['format']=='geoRSS'" rdf:value="application/rss+xml" rdfs:label="geoRSS"/>
+<dct:IMT py:when="rsc_dict['format']=='GML'" rdf:value="application/gml+xml" rdfs:label="GML"/>
+<dct:IMT py:when="rsc_dict['format']=='GPX'" rdf:value="application/gpx+xml" rdfs:label="GPX"/>
+<dct:IMT py:when="rsc_dict['format']=='GZIP'" rdf:value="application/gzip" rdfs:label="GZIP"/>
+<dct:IMT py:when="rsc_dict['format']=='HTML'" rdf:value="text/html" rdfs:label="HTML"/>
+<dct:IMT py:when="rsc_dict['format']=='IMG'" rdf:value="application/img" rdfs:label="IMG"/>
+<dct:IMT py:when="rsc_dict['format']=='JPG'" rdf:value="image/jpeg" rdfs:label="JPG"/>
+<dct:IMT py:when="rsc_dict['format']=='KMZ'" rdf:value="application/vnd.google-earth.kmz" rdfs:label="KMZ"/>
+<dct:IMT py:when="rsc_dict['format']=='MDB'" rdf:value="application/msaccess" rdfs:label="MDB"/>
+<dct:IMT py:when="rsc_dict['format']=='MPP'" rdf:value="application/vmd.ms-project" rdfs:label="MPP"/>
+<dct:IMT py:when="rsc_dict['format']=='ODP'" rdf:value="application/vnd.oasis.opendocument.presentation" rdfs:label="ODP"/>
+<dct:IMT py:when="rsc_dict['format']=='ODT'" rdf:value="application/vnd.oasis.opendocument.text" rdfs:label="ODT"/>
+<dct:IMT py:when="rsc_dict['format']=='PC-Axis'" rdf:value="text/pc-axis" rdfs:label="PC-Axis"/>
+<dct:IMT py:when="rsc_dict['format']=='PGP'" rdf:value="application/pgp-signature" rdfs:label="PGP"/>
+<dct:IMT py:when="rsc_dict['format']=='plain'" rdf:value="text/plain" rdfs:label="plain"/>
+<dct:IMT py:when="rsc_dict['format']=='PNG'" rdf:value="image/png" rdfs:label="PNG"/>
+<dct:IMT py:when="rsc_dict['format']=='Postscript'" rdf:value="application/postscript" rdfs:label="Postscript"/>
+<dct:IMT py:when="rsc_dict['format']=='PPT'" rdf:value="application/vms.ms-powerpoint" rdfs:label="PPT"/>
+<dct:IMT py:when="rsc_dict['format']=='RASTER'" rdf:value="application/vnd.cups-raster" rdfs:label="RASTER"/>
+<dct:IMT py:when="rsc_dict['format']=='RDF-N3'" rdf:value="text/n3" rdfs:label="RDF-N3"/>
+<dct:IMT py:when="rsc_dict['format']=='RDF-Turtle'" rdf:value="text/turtle" rdfs:label="RDF-Turtle"/>
+<dct:IMT py:when="rsc_dict['format']=='RDF-XML'" rdf:value="application/rdf+xml" rdfs:label="RDF-XML"/>
+<dct:IMT py:when="rsc_dict['format']=='RTF'" rdf:value="text/rtf" rdfs:label="RTF"/>
+<dct:IMT py:when="rsc_dict['format']=='SMIL'" rdf:value="application/smil+xml" rdfs:label="SMIL"/>
+<dct:IMT py:when="rsc_dict['format']=='SOAP'" rdf:value="application/soap+xml" rdfs:label="SOAP"/>
+<dct:IMT py:when="rsc_dict['format']=='Solr'" rdf:value="application/solr" rdfs:label="Solr"/>
+<dct:IMT py:when="rsc_dict['format']=='SPARQL'" rdf:value="application/sparql-query" rdfs:label="SPARQL"/>
+<dct:IMT py:when="rsc_dict['format']=='SPARQL-JSON'" rdf:value="application/sparql-results+json" rdfs:label="SPARQL-JSON"/>
+<dct:IMT py:when="rsc_dict['format']=='SPARQL-XML'" rdf:value="application/sparql-results+xml" rdfs:label="SPARQL-XML"/>
+<dct:IMT py:when="rsc_dict['format']=='TIFF'" rdf:value="image/tiff" rdfs:label="TIFF"/>
+<dct:IMT py:when="rsc_dict['format']=='TSV'" rdf:value="text/tab-separated-values" rdfs:label="TSV"/>
+<dct:IMT py:when="rsc_dict['format']=='vCard-texto'" rdf:value="text/vcard" rdfs:label="vCard-texto"/>
+<dct:IMT py:when="rsc_dict['format']=='vCard-XML'" rdf:value="application/vcard+xml" rdfs:label="vCard-XML"/>
+<dct:IMT py:when="rsc_dict['format']=='Visio'" rdf:value="application/vnd.visio" rdfs:label="Visio"/>
+<dct:IMT py:when="rsc_dict['format']=='VoiceXML'" rdf:value="application/voicexml+xml" rdfs:label="VoiceXML"/>
+<dct:IMT py:when="rsc_dict['format']=='WCS'" rdf:value="text/wcs" rdfs:label="WCS"/>
+<dct:IMT py:when="rsc_dict['format']=='WFS'" rdf:value="text/wfs" rdfs:label="WFS"/>
+<dct:IMT py:when="rsc_dict['format']=='WMS'" rdf:value="text/wms" rdfs:label="WMS"/>
+<dct:IMT py:when="rsc_dict['format']=='XBRL'" rdf:value="application/xbrl" rdfs:label="XBRL"/>
+<dct:IMT py:when="rsc_dict['format']=='XHTML'" rdf:value="application/xhtml+xml" rdfs:label="XHTML"/>
+<dct:IMT py:when="rsc_dict['format']=='XLSX'" rdf:value="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" rdfs:label="XLSX"/>
+<dct:IMT py:when="rsc_dict['format']=='ZIP'" rdf:value="application/zip" rdfs:label="ZIP"/>
+<dct:IMT py:when="rsc_dict['format']=='ASCII'" rdf:value="text/ascii" rdfs:label="ASCII"/>
+<dct:IMT py:when="rsc_dict['format']=='ATOM'" rdf:value="application/atom+xml" rdfs:label="ATOM"/>
+<dct:IMT py:when="rsc_dict['format']=='CALENDAR'" rdf:value="text/calendar" rdfs:label="CALENDAR"/>
+<dct:IMT py:when="rsc_dict['format']=='DBF'" rdf:value="application/dbf" rdfs:label="DBF"/>
+<dct:IMT py:when="rsc_dict['format']=='DGN'" rdf:value="image/vnd.dgn" rdfs:label="DGN"/>
+<dct:IMT py:when="rsc_dict['format']=='DJVU'" rdf:value="image/vnd.djvu" rdfs:label="DJVU"/>
+<dct:IMT py:when="rsc_dict['format']=='DOC'" rdf:value="application/msword" rdfs:label="DOC"/>
+<dct:IMT py:when="rsc_dict['format']=='DWG'" rdf:value="image/vnd.dwg" rdfs:label="DWG"/>
+<dct:IMT py:when="rsc_dict['format']=='DXF'" rdf:value="application/dxf" rdfs:label="DXF"/>
+<dct:IMT py:when="rsc_dict['format']=='ECW'" rdf:value="application/ecw" rdfs:label="ECW"/>
+<dct:IMT py:when="rsc_dict['format']=='GBD'" rdf:value="x-lml/x-gdb" rdfs:label="GBD"/>
+<dct:IMT py:when="rsc_dict['format']=='GEORSS'" rdf:value="application/rss+xml" rdfs:label="GEORSS"/>
+<dct:IMT py:when="rsc_dict['format']=='GML'" rdf:value="application/gml+xml" rdfs:label="GML"/>
+<dct:IMT py:when="rsc_dict['format']=='GPX'" rdf:value="application/gpx+xml" rdfs:label="GPX"/>
+<dct:IMT py:when="rsc_dict['format']=='GZIP'" rdf:value="application/gzip" rdfs:label="GZIP"/>
+<dct:IMT py:when="rsc_dict['format']=='HTML'" rdf:value="text/html" rdfs:label="HTML"/>
+<dct:IMT py:when="rsc_dict['format']=='IMG'" rdf:value="application/img" rdfs:label="IMG"/>
+<dct:IMT py:when="rsc_dict['format']=='JPG'" rdf:value="image/jpeg" rdfs:label="JPG"/>
+<dct:IMT py:when="rsc_dict['format']=='KMZ'" rdf:value="application/vnd.google-earth.kmz" rdfs:label="KMZ"/>
+<dct:IMT py:when="rsc_dict['format']=='MDB'" rdf:value="application/msaccess" rdfs:label="MDB"/>
+<dct:IMT py:when="rsc_dict['format']=='MPP'" rdf:value="application/vmd.ms-project" rdfs:label="MPP"/>
+<dct:IMT py:when="rsc_dict['format']=='ODP'" rdf:value="application/vnd.oasis.opendocument.presentation" rdfs:label="ODP"/>
+<dct:IMT py:when="rsc_dict['format']=='ODT'" rdf:value="application/vnd.oasis.opendocument.text" rdfs:label="ODT"/>
+<dct:IMT py:when="rsc_dict['format']=='PC-AXIS'" rdf:value="text/pc-axis" rdfs:label="PC-AXIS"/>
+<dct:IMT py:when="rsc_dict['format']=='PGP'" rdf:value="application/pgp-signature" rdfs:label="PGP"/>
+<dct:IMT py:when="rsc_dict['format']=='PLAIN'" rdf:value="text/plain" rdfs:label="PLAIN"/>
+<dct:IMT py:when="rsc_dict['format']=='PNG'" rdf:value="image/png" rdfs:label="PNG"/>
+<dct:IMT py:when="rsc_dict['format']=='POSTSCRIPT'" rdf:value="application/postscript" rdfs:label="POSTSCRIPT"/>
+<dct:IMT py:when="rsc_dict['format']=='PPT'" rdf:value="application/vms.ms-powerpoint" rdfs:label="PPT"/>
+<dct:IMT py:when="rsc_dict['format']=='RASTER'" rdf:value="application/vnd.cups-raster" rdfs:label="RASTER"/>
+<dct:IMT py:when="rsc_dict['format']=='RDF-N3'" rdf:value="text/n3" rdfs:label="RDF-N3"/>
+<dct:IMT py:when="rsc_dict['format']=='RDF-TURTLE'" rdf:value="text/turtle" rdfs:label="RDF-TURTLE"/>
+<dct:IMT py:when="rsc_dict['format']=='RDF-XML'" rdf:value="application/rdf+xml" rdfs:label="RDF-XML"/>
+<dct:IMT py:when="rsc_dict['format']=='RTF'" rdf:value="text/rtf" rdfs:label="RTF"/>
+<dct:IMT py:when="rsc_dict['format']=='SMIL'" rdf:value="application/smil+xml" rdfs:label="SMIL"/>
+<dct:IMT py:when="rsc_dict['format']=='SOAP'" rdf:value="application/soap+xml" rdfs:label="SOAP"/>
+<dct:IMT py:when="rsc_dict['format']=='SOLR'" rdf:value="application/solr" rdfs:label="SOLR"/>
+<dct:IMT py:when="rsc_dict['format']=='SPARQL'" rdf:value="application/sparql-query" rdfs:label="SPARQL"/>
+<dct:IMT py:when="rsc_dict['format']=='SPARQL-JSON'" rdf:value="application/sparql-results+json" rdfs:label="SPARQL-JSON"/>
+<dct:IMT py:when="rsc_dict['format']=='SPARQL-XML'" rdf:value="application/sparql-results+xml" rdfs:label="SPARQL-XML"/>
+<dct:IMT py:when="rsc_dict['format']=='TIFF'" rdf:value="image/tiff" rdfs:label="TIFF"/>
+<dct:IMT py:when="rsc_dict['format']=='TSV'" rdf:value="text/tab-separated-values" rdfs:label="TSV"/>
+<dct:IMT py:when="rsc_dict['format']=='VCARD-TEXTO'" rdf:value="text/vcard" rdfs:label="VCARD-TEXTO"/>
+<dct:IMT py:when="rsc_dict['format']=='VCARD-XML'" rdf:value="application/vcard+xml" rdfs:label="VCARD-XML"/>
+<dct:IMT py:when="rsc_dict['format']=='VISIO'" rdf:value="application/vnd.visio" rdfs:label="VISIO"/>
+<dct:IMT py:when="rsc_dict['format']=='VOICEXML'" rdf:value="application/voicexml+xml" rdfs:label="VOICEXML"/>
+<dct:IMT py:when="rsc_dict['format']=='WCS'" rdf:value="text/wcs" rdfs:label="WCS"/>
+<dct:IMT py:when="rsc_dict['format']=='WFS'" rdf:value="text/wfs" rdfs:label="WFS"/>
+<dct:IMT py:when="rsc_dict['format']=='WMS'" rdf:value="text/wms" rdfs:label="WMS"/>
+<dct:IMT py:when="rsc_dict['format']=='XBRL'" rdf:value="application/xbrl" rdfs:label="XBRL"/>
+<dct:IMT py:when="rsc_dict['format']=='XHTML'" rdf:value="application/xhtml+xml" rdfs:label="XHTML"/>
+<dct:IMT py:when="rsc_dict['format']=='XLSX'" rdf:value="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" rdfs:label="XLSX"/>
+<dct:IMT py:when="rsc_dict['format']=='ZIP'" rdf:value="application/zip" rdfs:label="ZIP"/>
+<dct:IMT py:when="rsc_dict['format']=='ascii'" rdf:value="text/ascii" rdfs:label="ascii"/>
+<dct:IMT py:when="rsc_dict['format']=='atom'" rdf:value="application/atom+xml" rdfs:label="atom"/>
+<dct:IMT py:when="rsc_dict['format']=='calendar'" rdf:value="text/calendar" rdfs:label="calendar"/>
+<dct:IMT py:when="rsc_dict['format']=='dbf'" rdf:value="application/dbf" rdfs:label="dbf"/>
+<dct:IMT py:when="rsc_dict['format']=='dgn'" rdf:value="image/vnd.dgn" rdfs:label="dgn"/>
+<dct:IMT py:when="rsc_dict['format']=='djvu'" rdf:value="image/vnd.djvu" rdfs:label="djvu"/>
+<dct:IMT py:when="rsc_dict['format']=='doc'" rdf:value="application/msword" rdfs:label="doc"/>
+<dct:IMT py:when="rsc_dict['format']=='dwg'" rdf:value="image/vnd.dwg" rdfs:label="dwg"/>
+<dct:IMT py:when="rsc_dict['format']=='dxf'" rdf:value="application/dxf" rdfs:label="dxf"/>
+<dct:IMT py:when="rsc_dict['format']=='ecw'" rdf:value="application/ecw" rdfs:label="ecw"/>
+<dct:IMT py:when="rsc_dict['format']=='gbd'" rdf:value="x-lml/x-gdb" rdfs:label="gbd"/>
+<dct:IMT py:when="rsc_dict['format']=='georss'" rdf:value="application/rss+xml" rdfs:label="georss"/>
+<dct:IMT py:when="rsc_dict['format']=='gml'" rdf:value="application/gml+xml" rdfs:label="gml"/>
+<dct:IMT py:when="rsc_dict['format']=='gpx'" rdf:value="application/gpx+xml" rdfs:label="gpx"/>
+<dct:IMT py:when="rsc_dict['format']=='gzip'" rdf:value="application/gzip" rdfs:label="gzip"/>
+<dct:IMT py:when="rsc_dict['format']=='html'" rdf:value="text/html" rdfs:label="html"/>
+<dct:IMT py:when="rsc_dict['format']=='img'" rdf:value="application/img" rdfs:label="img"/>
+<dct:IMT py:when="rsc_dict['format']=='jpg'" rdf:value="image/jpeg" rdfs:label="jpg"/>
+<dct:IMT py:when="rsc_dict['format']=='kmz'" rdf:value="application/vnd.google-earth.kmz" rdfs:label="kmz"/>
+<dct:IMT py:when="rsc_dict['format']=='mdb'" rdf:value="application/msaccess" rdfs:label="mdb"/>
+<dct:IMT py:when="rsc_dict['format']=='mpp'" rdf:value="application/vmd.ms-project" rdfs:label="mpp"/>
+<dct:IMT py:when="rsc_dict['format']=='odp'" rdf:value="application/vnd.oasis.opendocument.presentation" rdfs:label="odp"/>
+<dct:IMT py:when="rsc_dict['format']=='odt'" rdf:value="application/vnd.oasis.opendocument.text" rdfs:label="odt"/>
+<dct:IMT py:when="rsc_dict['format']=='pc-axis'" rdf:value="text/pc-axis" rdfs:label="pc-axis"/>
+<dct:IMT py:when="rsc_dict['format']=='pgp'" rdf:value="application/pgp-signature" rdfs:label="pgp"/>
+<dct:IMT py:when="rsc_dict['format']=='plain'" rdf:value="text/plain" rdfs:label="plain"/>
+<dct:IMT py:when="rsc_dict['format']=='png'" rdf:value="image/png" rdfs:label="png"/>
+<dct:IMT py:when="rsc_dict['format']=='postscript'" rdf:value="application/postscript" rdfs:label="postscript"/>
+<dct:IMT py:when="rsc_dict['format']=='ppt'" rdf:value="application/vms.ms-powerpoint" rdfs:label="ppt"/>
+<dct:IMT py:when="rsc_dict['format']=='raster'" rdf:value="application/vnd.cups-raster" rdfs:label="raster"/>
+<dct:IMT py:when="rsc_dict['format']=='rdf-n3'" rdf:value="text/n3" rdfs:label="rdf-n3"/>
+<dct:IMT py:when="rsc_dict['format']=='rdf-turtle'" rdf:value="text/turtle" rdfs:label="rdf-turtle"/>
+<dct:IMT py:when="rsc_dict['format']=='rdf-xml'" rdf:value="application/rdf+xml" rdfs:label="rdf-xml"/>
+<dct:IMT py:when="rsc_dict['format']=='rtf'" rdf:value="text/rtf" rdfs:label="rtf"/>
+<dct:IMT py:when="rsc_dict['format']=='smil'" rdf:value="application/smil+xml" rdfs:label="smil"/>
+<dct:IMT py:when="rsc_dict['format']=='soap'" rdf:value="application/soap+xml" rdfs:label="soap"/>
+<dct:IMT py:when="rsc_dict['format']=='solr'" rdf:value="application/solr" rdfs:label="solr"/>
+<dct:IMT py:when="rsc_dict['format']=='sparql'" rdf:value="application/sparql-query" rdfs:label="sparql"/>
+<dct:IMT py:when="rsc_dict['format']=='sparql-json'" rdf:value="application/sparql-results+json" rdfs:label="sparql-json"/>
+<dct:IMT py:when="rsc_dict['format']=='sparql-xml'" rdf:value="application/sparql-results+xml" rdfs:label="sparql-xml"/>
+<dct:IMT py:when="rsc_dict['format']=='tiff'" rdf:value="image/tiff" rdfs:label="tiff"/>
+<dct:IMT py:when="rsc_dict['format']=='tsv'" rdf:value="text/tab-separated-values" rdfs:label="tsv"/>
+<dct:IMT py:when="rsc_dict['format']=='vcard-texto'" rdf:value="text/vcard" rdfs:label="vcard-texto"/>
+<dct:IMT py:when="rsc_dict['format']=='vcard-xml'" rdf:value="application/vcard+xml" rdfs:label="vcard-xml"/>
+<dct:IMT py:when="rsc_dict['format']=='visio'" rdf:value="application/vnd.visio" rdfs:label="visio"/>
+<dct:IMT py:when="rsc_dict['format']=='voicexml'" rdf:value="application/voicexml+xml" rdfs:label="voicexml"/>
+<dct:IMT py:when="rsc_dict['format']=='wcs'" rdf:value="text/wcs" rdfs:label="wcs"/>
+<dct:IMT py:when="rsc_dict['format']=='wfs'" rdf:value="text/wfs" rdfs:label="wfs"/>
+<dct:IMT py:when="rsc_dict['format']=='wms'" rdf:value="text/wms" rdfs:label="wms"/>
+<dct:IMT py:when="rsc_dict['format']=='xbrl'" rdf:value="application/xbrl" rdfs:label="xbrl"/>
+<dct:IMT py:when="rsc_dict['format']=='xhtml'" rdf:value="application/xhtml+xml" rdfs:label="xhtml"/>
+<dct:IMT py:when="rsc_dict['format']=='xlsx'" rdf:value="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" rdfs:label="xlsx"/>
+<dct:IMT py:when="rsc_dict['format']=='zip'" rdf:value="application/zip" rdfs:label="zip"/>
+<dct:IMT py:when="rsc_dict['format']=='GeoJSON'" rdf:value="application/json" rdfs:label="GeoJSON"/>
+ <dct:IMT py:otherwise="" rdf:value="${rsc_dict['mimetype']}" rdfs:label="${rsc_dict.get('format')}"/>
+ </dct:format>
 <py:if test="rsc_dict['size']>0">
 <dcat:byteSize rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">${rsc_dict['size']}</dcat:byteSize>
 </py:if>
@@ -82,7 +264,10 @@
 </dcat:distribution>
 </py:for>
 </dcat:Dataset>
-</py:for>
 </dcat:dataset>
+</py:if>
+</py:with>
+</py:for>
+</py:with>
 </dcat:Catalog>
 </rdf:RDF>

@@ -1,24 +1,27 @@
 {% extends "page.html" %}
 
-{% block subtitle %}{{ _('Detalles Técnicos') }}{% endblock %}
+{% block subtitle %}Detalles Técnicos{% endblock %}
 
 {% block breadcrumb_content %}
-  <li class="active">{% link_for _('Detalles Técnicos'), controller='home', action='about' %}</li>
+<a class=" active" href="/detallestecnicos">Detalles técnicos del portal de datos abiertos de Ayuntamiento de Málaga</a>
 {% endblock %}
+
 
 {% block primary %}
-  <article class="module">
-    <div class="module-content">
-      {% block about %}
-        {% if g.site_about %}
-          {% snippet 'home/snippets/detallestecnicos_text.html' %}
-        {% else %}
-          <h1 class="page-heading">{{ _('Detalles Técnicos') }}</h1>
-          {% snippet 'home/snippets/detallestecnicos_text.html' %}
-        {% endif %}
-      {% endblock %}
+<article class="mlg-module-content-app" style="height:auto">
+<div class="mlg-lista-aplicaciones">
+    <div class="mlg-site-aplicaciones"> 
+	{% snippet 'home/snippets/detallestecnicos/detalletecnicomalaga.html' %}
+	{% snippet 'home/snippets/detallestecnicos/detalletecnicodatosgob.html' %}
+	{% snippet 'home/snippets/detallestecnicos/detalletecnicofiware.html' %}
+	{% snippet 'home/snippets/detallestecnicos/detalletecnicogithub.html' %}
+	{% snippet 'home/snippets/detallestecnicos/detalletecnicockan.html' %}
+
     </div>
+</div>
   </article>
 {% endblock %}
+{% block secondary %}
 
-{% block secondary %}{% endblock %}
+{% endblock %}
+

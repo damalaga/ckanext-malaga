@@ -4,21 +4,35 @@
 # @email        datosabiertos@malaga.eu
 #
 # 
+# Funciones utiles para la federacion en datos.gob.es.
+# Esta libreria la usa el fichero rdf para obtener datos
 
 
 import ckan.plugins as p
 import ckan.plugins.toolkit as toolkit
 import plugin as mlgplugin
+import pylons.config as config 
+
+
+# mlg_federador_value: Devuelve el valor estatico que 'val' tiene en el fichero .ini
+# mlg_federador_value: Return 'val' static value on .ini file
+
+def mlg_federador_value(val):
+	return config[val]
 
 # mlg_fed_total_resources_size: Devuelve la suma de bytes de todos los ficheros de recursos
 # mlg_fed_total_resources_size: Returns bytes sum of resources
 def mlg_fed_total_resources_size():
-	datasets = mlgplugin.mlg_datasets_resources_list()
-	count = 0
-	for ds in datasets:
-		for res in ds['resources']:
-			count = count + int(res['size'] or 0)
-	return count
+
+	siz = 0
+	ds_list = mlgplugin.mlg_ds_list()
+	for dsname in ds_list:
+		data_dict = {'id':dsname}
+		dsitem = toolkit.get_action('package_show')(data_dict=data_dict)
+		for res in dsitem['resources']:
+			if res['size'] is not None:
+				siz = siz + int(res['size'])
+	return siz
 
 # mlg_fed_datasets_related: Devuelve los items relacionados con el dataset.
 # Si dsname esta relleno, devuelve los items relacionados de ese dataset.

@@ -24,6 +24,15 @@
 </h1>
       {% endblock %}
 </div>
+
+{% block package_notes %}
+      {% if c.pkg_notes_formatted %}
+        <div class="notes embedded-content">
+          {{ c.pkg_notes_formatted }}
+        </div>
+      {% endif %}
+    {% endblock %}
+
   {% endblock %}
 
   {% block package_resources %}

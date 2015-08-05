@@ -1,0 +1,219 @@
+/*datosabiertos.malaga.eu responsive*/
+
+.account-masthead{
+background-image:url("");
+background-color:black;
+}
+
+.mlg-navbar{
+background-color:white;
+background-image:url("");
+}
+
+.mlg-social img:hover{
+opacity: 1.0;
+filter: alpha(opacity=40);
+-webkit-filter: grayscale(0%);
+}
+
+
+.mlg-social img{
+float:right;
+padding-left:5px;
+opacity: 0.4;
+-webkit-filter: grayscale(100%);
+}
+
+
+hr{
+border-top: 1px dotted #9E9E9E;
+}
+
+ul.nav.nav-pills.mlg-ckan-footer>li>a {
+color: white;
+text-shadow: none;
+font-weight: normal;
+}
+
+
+ul.nav.nav-pills.mlg-ckan-footer>li>a:hover {
+background-color:black;}
+
+
+
+.masthead .nav>li>a, .masthead {
+color: black;
+text-shadow: none;
+}
+
+
+.masthead .nav>li>a:hover {
+color:white;
+border-radius:16px;
+}
+
+.mlg-ini{
+background-color:black;}
+
+
+nav.section.navigation.mlg-menu-responsive {
+width: 940px;
+float: left;
+  border-width: 1px;
+  border-style: dotted;
+  border-color: rgb(158, 158, 158);
+  border-left-style:hidden;
+  border-right-style:hidden;
+margin: 0px 0px 0px 0px;
+}
+
+.masthead .navigation .nav-pills li a:hover, .masthead .navigation .nav-pills li.active a {
+  background-color: #005E7D;
+border-radius:16px;
+}
+
+
+@media (max-width: 768px){
+.nav-collapse .nav>li>a,.nav-collapse .dropdown-menu a{
+  text-align: left;
+  width:100%;
+  padding-left:5px;
+}}
+
+@media (min-width: 979px){
+.mlg-no-carrusel{
+display:none;
+}
+}
+
+@media (max-width: 979px){
+.mlg-grupos-organizaciones{
+display:none;
+}
+div#mlg-carrusel{
+display:none;
+}
+}
+
+@media (max-width: 979px){
+.mlg-ckan-footer{
+min-height:0px;
+}
+}
+
+
+nav.section.navigation.mlg-menu-responsive li {
+width:17%;
+padding-left:14px;
+padding-right:14px;
+padding-top:10px;
+padding-bottom:10px;
+text-align:center;
+}
+
+nav.section.navigation.mlg-menu-responsive .nav>li>a{
+float:center;
+-webkit-border-radius:16px;
+}
+
+
+.masthead .navigation .nav-pills li a:hover{
+background-color: #005E7D;
+}
+
+.footer-links {
+  margin-left: 0;
+}
+
+ul.nav.nav-pills.mlg-menu-text {
+width:940px;}
+
+
+
+.site-footer{
+	background-color: #000000;
+	background-image: url("");
+	
+}
+
+.mlg-ckan-footer{
+	background-color: #000000;
+	height: auto;
+	color: #ffffff;
+}
+
+
+
+#footer .well {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background: #ECECEC;
+  margin: 0;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  text-align: center;
+  border-right: 2px solid #CACACA;
+  border-bottom: 2px solid #CACACA;
+}
+
+
+#footer {
+  font-size: 13px;
+  margin: 40px 0 0;
+  border-top: 1px dotted #DCDCDC;
+  padding: 30px 0 0 0;
+}
+
+#footer .well a:hover {
+  color: #000;
+}
+#footer .well a {
+  color: #666;
+  text-shadow: 1px 1px 0 #ffffff;
+}
+
+input#field-sitewide-search{
+padding: 2px 4px 2px 2px;
+}
+
+#footer .span2 a {
+  color: white;
+}
+
+
+#button-mlg-responsive-footer{
+background-color: #003647;
+  background-image: none;
+  border: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  text-shadow: none;
+  margin-top: 15px;
+  float:right;}
+
+
+#button-mlg-responsive-footer span.icon-bar {display: block;
+  width: 18px;
+  height: 2px;
+  background-color: #f5f5f5;
+  -webkit-border-radius: 1px;
+  -moz-border-radius: 1px;
+  border-radius: 1px;
+  -webkit-box-shadow: 0 1px 0 rgba(0,0,0,0.25);
+  -moz-box-shadow: 0 1px 0 rgba(0,0,0,0.25);
+  box-shadow: 0 1px 0 rgba(0,0,0,0.25);
+}
+
+#nav-collapse-footer {
+float:left;
+padding-top:0px;
+}
+
+
+
+.masthead .navigation .nav-pills li a:hover, .masthead .navigation .nav-pills li.active a {
+  background-color: #005E7D;
+  border-radius: 0px;
+}
