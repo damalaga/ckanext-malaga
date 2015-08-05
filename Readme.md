@@ -10,7 +10,7 @@ El [Portal de Datos Abiertos del Ayuntamiento de Málaga](http://datosabiertos.m
 Está instalada desde fuentes (http://docs.ckan.org/en/latest/maintaining/installing/install-from-source.html)
 
 <b>IMPORTANTE:</b>
-Esta extensión funciona para CKAN 2.4 y CKAN 2.3 (CKAN responsive), para versiones anteriores esta versión <b>NO ES COMPATIBLE</b>.
+Esta extensión funciona para <b>CKAN 2.4 y CKAN 2.3 (CKAN responsive), para versiones anteriores esta versión NO ES COMPATIBLE</b>.
 
 Para usar la extensión ckanext-malaga en CKAN 2.2 o anteriores, deberá usar la rama pertinente de este repositorio.
 
