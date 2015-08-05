@@ -2,6 +2,10 @@ setup.py
 ckanext/__init__.py
 ckanext/malaga/__init__.py
 ckanext/malaga/controller.py
+<<<<<<< HEAD
+=======
+ckanext/malaga/convertfile.py
+>>>>>>> fce8223387d9ba420a2f5e157f98c874e692114b
 ckanext/malaga/federador.py
 ckanext/malaga/generadorrdf.py
 ckanext/malaga/home.py

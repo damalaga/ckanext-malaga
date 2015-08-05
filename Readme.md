@@ -10,7 +10,12 @@ El [Portal de Datos Abiertos del Ayuntamiento de Málaga](http://datosabiertos.m
 Está instalada desde fuentes (http://docs.ckan.org/en/latest/maintaining/installing/install-from-source.html)
 
 <b>IMPORTANTE:</b>
+<<<<<<< HEAD
 Esta extensión funciona para CKAN 2.3 y 2.4 (CKAN responsive), para versiones anteriores esta versión <b>NO ES COMPATIBLE</b>.
+=======
+
+Esta extensión funciona para CKAN 2.3 (CKAN responsive), para versiones anteriores esta versión no es compatible.
+>>>>>>> fce8223387d9ba420a2f5e157f98c874e692114b
 
 Para usar la extensión ckanext-malaga en CKAN 2.2 o anteriores, deberá usar la rama pertinente de este repositorio.
 
@@ -83,11 +88,19 @@ licenses_group_url = # Fichero de licencias en nuestro caso seria file:///home/c
 
 ##PROCESO DE FEDERACIÓN:
 
+<<<<<<< HEAD
 <b>IMPORTANTE</b>
 
 Esta versión de ckanext-malaga contiene las modificaciones oportunas para que se pueda federar los datos en datos.gob.es con CKAN 2.3, teniendo en cuenta que se ha modificaciones la API de CKAN versión 2.3. No podemos garantizar el funcionamiento de la federación en versiones anteriores a CKAN 2.3. 
 
 La feferación en versiones anteriores a CKAN 2.3 debe realizarse con la versión de ckanext-malaga correspondiente.
+=======
+<b>IMPORTANTE:</b>
+
+Esa versión de ckanext-malaga, federa en datos.gob.es para la versión de CKAN 2.3. No podemos garantizar el funcionamiento correcto para versiones anteriores a CKAN 2.3.
+
+Para federaciones con ckanext-malaga y CKAN 2.2 o anteriores, ir a la rama correspondiente.
+>>>>>>> fce8223387d9ba420a2f5e157f98c874e692114b
 
 El proceso que genera el fichero rdf puede llegar a tardar varios minutos, dependiendo del tamaño del catálogo de datos.
 
@@ -132,4 +145,7 @@ El código de esta aplicación puede ser reutilizado, modificado y adaptado a la
 
 ![Logo datos abiertos Málaga](https://github.com/damalaga/ckanext-malaga/blob/master/ckanext/malaga/public/images/logoportaldatosabiertos.png)
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> fce8223387d9ba420a2f5e157f98c874e692114b
