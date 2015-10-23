@@ -40,7 +40,11 @@ Los pasos para reproducir el portal de datos abiertos del Ayuntamiento de Málag
 
 ##Instalación de ckanext-malaga
 =======
-###Descarga de la extensión
+Los pasos son:
+1- Descargar la extensión y desplegarla
+2- Configurar la extensión ckanext-malaga en CKAN
+3- Reiniciar Apache2
+###Descargar la extensión y desplegarla
 
 * Conectarse a la máquina de CKAN con el usuario de ckan.
 * Ir al directorio de instalación de la extensión (en nuestro caso):
@@ -51,7 +55,7 @@ Los pasos para reproducir el portal de datos abiertos del Ayuntamiento de Málag
 * Desplegarla
 <p>python setup.py develop</p>
 (antes de reiniciar Apache2 hay que configurar la extensión en el fichero .ini)
-##Configuración de la extensión
+##Configurar la extensión ckanext-malaga en CKAN
 Añadir en el fichero .ini estas lineas y, a continuacion, reiniciar apache2:
 <pre>
 <code>
@@ -77,7 +81,7 @@ licenses_group_url = # Fichero de licencias en nuestro caso seria
 file:///home/ckan/ckan/lib/default/src/ckanext-malaga/ckanext/malaga/public/licencias.json
 </code></pre>
 
-###Reinicio de Apache2
+###Reiniciar Apache2
 Conectarse con un usuario administrador para reiniciar Apache2
 <pre><code>sudo service apache2 restart</code></pre>
 
