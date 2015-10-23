@@ -10,7 +10,8 @@ El [Portal de Datos Abiertos del Ayuntamiento de Málaga](http://datosabiertos.m
 Está instalada desde fuentes (http://docs.ckan.org/en/latest/maintaining/installing/install-from-source.html)
 
 <b>IMPORTANTE:</b>
-Esta extensión funciona para CKAN 2.3 (CKAN responsive), para versiones anteriores esta versión <b>NO ES COMPATIBLE</b>.
+Esta extensión funciona en CKAN 2.3 y CKAN 2.4.0 (CKAN responsive), para versiones anteriores esta versión <b>NO ES COMPATIBLE</b>.
+Esta extensión no ha sido probada en versiones superiores a CKAN 2.4.0.
 
 Para usar la extensión ckanext-malaga en CKAN 2.2 o anteriores, deberá usar la rama pertinente de este repositorio.
 
@@ -45,9 +46,10 @@ Los pasos para reproducir el portal de datos abiertos del Ayuntamiento de Málag
 <p>cd ckan/lib/default/src</p>
 * Clonar la extensión
 <p>git clone https://github.com/damalaga/ckanext-malaga</p>
+* Ir al directorio <p>cd ckanext-malaga</p>
 * Desplegarla
 <p>python setup.py develop</p>
-
+(antes de reiniciar Apache2 hay que configurar la extensión en el fichero .ini)
 ###Configuración de la extensión
 Añadir en el fichero .ini estas lineas y, a continuacion, reiniciar apache2:
 <pre>
@@ -75,10 +77,13 @@ ckan_mlg.license_res = #etiqueta license
 #################
 
 #configuracion relacionada con el fichero de licencia
-licenses_group_url = # Fichero de licencias en nuestro caso seria file:///home/ckan/ckan/lib/default/src/ckanext-malaga/ckanext/malaga/public/licencias.json
+licenses_group_url = # Fichero de licencias en nuestro caso seria
+<pre><code>file:///home/ckan/ckan/lib/default/src/ckanext-malaga/ckanext/malaga/public/licencias.json
 </code></pre>
-</code>
-</pre>
+
+###Reinicio de Apache2
+Conectarse con un usuario administrador para reiniciar Apache2
+<pre><code>sudo service apache2 restart</code></pre>
 
 
 ##PROCESO DE FEDERACIÓN:
