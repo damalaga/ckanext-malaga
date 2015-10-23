@@ -38,9 +38,9 @@ Los pasos para reproducir el portal de datos abiertos del Ayuntamiento de Málag
 * Formulario de contacto usando la extensión ckanext-contacto.
 * Modo responsive (compatible para móviles).
 
-#Instalación de ckanext-malaga
+##Instalación de ckanext-malaga
 =======
-##Descarga de la extensión
+###Descarga de la extensión
 
 * Conectarse a la máquina de CKAN con el usuario de ckan.
 * Ir al directorio de instalación de la extensión (en nuestro caso):
@@ -57,7 +57,6 @@ Añadir en el fichero .ini estas lineas y, a continuacion, reiniciar apache2:
 <code>
 #Añadimos la extension en ckan.plugins
 ckan.plugins = .... malaga
-</code></pre>
 #indica donde se encuentra la entrada "aplicaciones" del menú, en nuestro caso esta en el home y se llama aplicaciones.html
 ckan_mlg.apl_url = aplicaciones.html 
 #################
@@ -79,7 +78,7 @@ ckan_mlg.license_res = #etiqueta license
 
 #configuracion relacionada con el fichero de licencia
 licenses_group_url = # Fichero de licencias en nuestro caso seria
-<pre><code>file:///home/ckan/ckan/lib/default/src/ckanext-malaga/ckanext/malaga/public/licencias.json
+file:///home/ckan/ckan/lib/default/src/ckanext-malaga/ckanext/malaga/public/licencias.json
 </code></pre>
 
 ###Reinicio de Apache2
