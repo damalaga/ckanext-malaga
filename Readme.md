@@ -60,14 +60,14 @@ ckan.plugins = .... malaga
 #indica donde se encuentra la entrada "aplicaciones" del menú, en nuestro caso esta en el home y se llama aplicaciones.html
 ckan_mlg.apl_url = aplicaciones.html 
 #################
-#Configuracion relacionada con la federacion
+##Configuracion relacionada con la federacion
 
 ckan_mlg.federador_file = #fichero donde escribimos el fichero rdf federador (escribir ruta absoluta y el nombre del fichero con la extension.
 ckan_mlg.federador_template = #ubicación de plantilla rdf que se usa en la federacion, en nuestro caso es local/plantillafederacion.rdf
 ckan_mlg.federador_process =  #instrucción que lanza el generador de rdf, si queremos que se lance el federador al escribir la URL http://dominio/generador, escribiremos generador
 
-# parametros propios de cada entidad
-# datatime portal published
+## parametros propios de cada entidad
+## datatime portal published
 ckan_mlg.federador_datetime_pub = #fecha y hora de la publicacion del portal en formato AAAA-MM-DDTHH:MI:SS
 ckan_mlg.federador_publisher = #etiqueta publisher
 ckan_mlg.federador_spatial_res = #etiqueta spatial
@@ -76,7 +76,7 @@ ckan_mlg.license_res = #etiqueta license
 
 #################
 
-#configuracion relacionada con el fichero de licencia
+##configuracion relacionada con el fichero de licencia
 licenses_group_url = # Fichero de licencias en nuestro caso seria
 file:///home/ckan/ckan/lib/default/src/ckanext-malaga/ckanext/malaga/public/licencias.json
 </code></pre>
