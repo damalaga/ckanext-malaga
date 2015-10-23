@@ -11,6 +11,7 @@ Está instalada desde fuentes (http://docs.ckan.org/en/latest/maintaining/instal
 
 <b>IMPORTANTE:</b>
 Esta extensión funciona en CKAN 2.3 y CKAN 2.4.0 (CKAN responsive), para versiones anteriores esta versión <b>NO ES COMPATIBLE</b>.
+
 Esta extensión no ha sido probada en versiones superiores a CKAN 2.4.0.
 
 Para usar la extensión ckanext-malaga en CKAN 2.2 o anteriores, deberá usar la rama pertinente de este repositorio.
@@ -37,9 +38,9 @@ Los pasos para reproducir el portal de datos abiertos del Ayuntamiento de Málag
 * Formulario de contacto usando la extensión ckanext-contacto.
 * Modo responsive (compatible para móviles).
 
-###Instalación de ckanext-malaga
+#Instalación de ckanext-malaga
 =======
-###Descarga de la extensión
+##Descarga de la extensión
 
 * Conectarse a la máquina de CKAN con el usuario de ckan.
 * Ir al directorio de instalación de la extensión (en nuestro caso):
@@ -50,13 +51,13 @@ Los pasos para reproducir el portal de datos abiertos del Ayuntamiento de Málag
 * Desplegarla
 <p>python setup.py develop</p>
 (antes de reiniciar Apache2 hay que configurar la extensión en el fichero .ini)
-###Configuración de la extensión
+##Configuración de la extensión
 Añadir en el fichero .ini estas lineas y, a continuacion, reiniciar apache2:
 <pre>
 <code>
 #Añadimos la extension en ckan.plugins
 ckan.plugins = .... malaga
-
+</code></pre>
 #indica donde se encuentra la entrada "aplicaciones" del menú, en nuestro caso esta en el home y se llama aplicaciones.html
 ckan_mlg.apl_url = aplicaciones.html 
 #################
