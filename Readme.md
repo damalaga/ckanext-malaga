@@ -62,6 +62,36 @@ Los pasos son:
 
 ###Configurar la extensión ckanext-malaga en CKAN
 
+Debemos tener un fichero (si no lo tenemos lo crearemos) en /home/ckan/ckan/lib/default/bin que se llame malaga.py (por ejemplo) que contiene la configuración al iniciarse CKAN con la extensión ckanext-malaga. El contenido tiene que ser este:
+
+<code>
+import os
+instance_dir = #directorio default, en nuestro caso: '/home/ckan/ckan/lib/default'
+config_file = #ruta y fichero de configuracion, en nuestro caso '/etc/ckan/default/malaga.ini'
+pyenv_bin_dir = os.path.join(instance_dir, 'bin')
+activate_this = os.path.join(pyenv_bin_dir, 'activate_this.py')
+execfile(activate_this, dict(__file__=activate_this))
+from paste.deploy import loadapp
+config_filepath = os.path.join(instance_dir, config_file)
+from paste.script.util.logging_config import fileConfig
+fileConfig(config_filepath)
+application = loadapp('config:%s' % config_filepath)
+</code>
+
+Además crearemos un fichero .conf en /etc/apache2/sites-available/ que estará enlanzado en /etc/apache2/sites-enabled, en el que indicaremos a Apache2 donde se inicia nuestro portal y donde se escriben los logs. El contenido es:
+
+<code>
+<VirtualHost *:80>
+	ServerName URLdedatosabiertos
+	WSGIScriptAlias / #ruta y fichero de malaga.py
+
+	WSGIPassAuthorization On
+
+	ErrorLog #ruta y fichero de errores
+	CustomLog #ruta y fichero mensajes combined
+</VirtualHost>
+</code>
+
 Añadir en el fichero .ini estas lineas y, a continuacion, reiniciar apache2:
 <pre>
 <code>
