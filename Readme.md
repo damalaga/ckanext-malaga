@@ -59,7 +59,9 @@ Los pasos son:
 * Desplegarla
 <p>python setup.py develop</p>
 (antes de reiniciar Apache2 hay que configurar la extensión en el fichero .ini)
+
 ###Configurar la extensión ckanext-malaga en CKAN
+
 Añadir en el fichero .ini estas lineas y, a continuacion, reiniciar apache2:
 <pre>
 <code>
@@ -67,8 +69,9 @@ Añadir en el fichero .ini estas lineas y, a continuacion, reiniciar apache2:
 ckan.plugins = .... malaga
 #indica donde se encuentra la entrada "aplicaciones" del menú, en nuestro caso esta en el home y se llama aplicaciones.html
 ckan_mlg.apl_url = aplicaciones.html 
-#################
+
 ##Configuracion relacionada con la federacion
+
 ckan_mlg.federador_file = #fichero donde escribimos el fichero rdf federador (escribir ruta absoluta y el nombre del fichero con la extension.
 ckan_mlg.federador_template = #ubicación de plantilla rdf que se usa en la federacion, en nuestro caso es local/plantillafederacion.rdf
 ckan_mlg.federador_process =  #instrucción que lanza el generador de rdf, si queremos que se lance el federador al escribir la URL http://dominio/generador, escribiremos generador
