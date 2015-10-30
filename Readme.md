@@ -91,7 +91,6 @@ Conectarse con un usuario administrador para reiniciar Apache2
 
 <pre><code>sudo service apache2 restart</code></pre>
 
-
 ##PROCESO DE FEDERACIÓN:
 
 <b>IMPORTANTE</b>
