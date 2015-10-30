@@ -117,6 +117,5 @@ El cron tiene las siguientes órdenes:
 <code>
 wget http://URL/home/snippets/get_carousel_tags.html -O /home/ckan/ckan/lib/default/src/ckanext-malaga/ckanext/malaga/theme/templates/home/snippets/carousel_tags.html
 wget http://URL/home/snippets/get_carousel_stats.html -O /home/ckan/ckan/lib/default/src/ckanext-malaga/ckanext/malaga/theme/templates/home/snippets/carousel_stats.html
-wget http://URL/home/snippets/get_carousel_resources.html -O /home/ckan/ckan/lib/default/src/ckanext-malaga/ckanext/malaga/theme/templates/home/snippets/carousel_resources.html
 </code>
 </pre>
