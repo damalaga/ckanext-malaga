@@ -84,3 +84,9 @@ ckan_mlg.license_res = #etiqueta license
 licenses_group_url = # Fichero de licencias en nuestro caso seria
 file:///home/ckan/ckan/lib/default/src/ckanext-malaga/ckanext/malaga/public/licencias.json
 </code></pre>
+
+###Reiniciar Apache2
+
+Conectarse con un usuario administrador para reiniciar Apache2
+
+<pre><code>sudo service apache2 restart</code></pre>
