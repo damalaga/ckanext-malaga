@@ -59,7 +59,7 @@ Los pasos son:
 * Desplegarla
 <p>python setup.py develop</p>
 (antes de reiniciar Apache2 hay que configurar la extensión en el fichero .ini)
-##Configurar la extensión ckanext-malaga en CKAN
+###Configurar la extensión ckanext-malaga en CKAN
 Añadir en el fichero .ini estas lineas y, a continuacion, reiniciar apache2:
 <pre>
 <code>
