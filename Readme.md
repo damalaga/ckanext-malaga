@@ -88,6 +88,7 @@ file:///home/ckan/ckan/lib/default/src/ckanext-malaga/ckanext/malaga/public/lice
 </code></pre>
 
 ###Reiniciar Apache2
+
 Conectarse con un usuario administrador para reiniciar Apache2
 <pre><code>sudo service apache2 restart</code></pre>
 
