@@ -71,7 +71,6 @@ ckan.plugins = .... malaga
 ckan_mlg.apl_url = aplicaciones.html 
 
 ##Configuracion relacionada con la federacion
-
 ckan_mlg.federador_file = #fichero donde escribimos el fichero rdf federador (escribir ruta absoluta y el nombre del fichero con la extension.
 ckan_mlg.federador_template = #ubicación de plantilla rdf que se usa en la federacion, en nuestro caso es local/plantillafederacion.rdf
 ckan_mlg.federador_process =  #instrucción que lanza el generador de rdf, si queremos que se lance el federador al escribir la URL http://dominio/generador, escribiremos generador
