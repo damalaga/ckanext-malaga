@@ -105,3 +105,10 @@ Por este motivo, hemos dividido el proceso en dos: en el primero se genera el fi
 - Generación del fichero rdf: para ello será necesario llamar a la siguiente URL http://dominio/XXXXX, siendo XXXXX la orden que hemos configurado previamente con el parámetros <code>ckan_mlg.federador_process</code>. El resultado se escribe en la ruta y fichero que hemos configurado previamente en <code>ckan_mlg.federador_rdf_write</code> del fichero .ini
 - Obtención del fichero rdf (previamente generado): El fichero se obtiene escribiendo la ruta que hemos configurado previamente en <code>ckan_mlg.federador_file</code>. Esta ruta debe ser accesible vía web y no debe estar dentro del ámbito de ckan, para que el controlador de rdfs que trae CKAN no actúe en la llamada.
 
+##SLIDES DEL CARRUSEL:
+
+El carrusel está implementado con el propio bootstrap que se incluye en la instalación de CKAN.
+La configuración y uso de la misma está hecha según la documentación oficial de la misma.
+
+El carrusel se compone de cinco slides, los tres primeros: recuento de recursos, etiquetas más populares y estadísticas, se generan periódicamente (cada día por ejemplo) mediante un cron que crea un html estático con el contenido del slide. Con esto evitamos consultar la información cada vez que se accede al home del portal.
+El cron tiene las siguientes órdenes:
