@@ -170,3 +170,8 @@ El código de esta aplicación puede ser reutilizado, modificado y adaptado a la
 ![Logo datos abiertos Málaga](https://github.com/damalaga/ckanext-malaga/blob/master/ckanext/malaga/public/images/logoportaldatosabiertos.png)
 
 
+=======
+##Otros portales usan nuestras extensiones
+Nuestras extensiones están siendo usadas por otros ayuntamientos:
+- Alcobendas
+- Rivas
