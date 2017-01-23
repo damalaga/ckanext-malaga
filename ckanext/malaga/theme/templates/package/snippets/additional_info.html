@@ -15,7 +15,6 @@
           <td class="dataset-details" property="foaf:homepage">{{ h.link_to(pkg_dict.url, pkg_dict.url, rel='foaf:homepage', target='_blank') }}</td>
         </tr>
       {% endif %}
-
       {% if pkg_dict.author_email %}
         <tr>
           <th scope="row" class="dataset-label">{{ _("Author") }}</th>
@@ -58,7 +57,6 @@
 	{% set tracksum = h.mlg_tracking_summary(idpackage) %}
 	{% set num_recent = tracksum['recent'] %}
 	{% set num_total = tracksum['total'] %}
-
 	{% if (num_recent > 0 and num_total > 0) %}
 		<tr>
 		  <th scope="row" class="dataset-label">{{ _("Descargas recientes") }}</th>
@@ -69,12 +67,15 @@
 		  <td class="dataset-details">{{ tracksum['total'] }}</td>
 		</tr>
 	{% endif %}
-	
       {% for extra in h.sorted_extras(pkg_dict.extras) %}
         {% set key, value = extra %}
         <tr rel="dc:relation" resource="_:extra{{ i }}">
           <th scope="row" class="dataset-label" property="rdfs:label">{{ _(key) }}</th>
-          <td class="dataset-details" property="rdf:value">{{ value }}</td>
+			{% if (key[:5] == 'Fecha') %}
+				<td class="dataset-details" property="rdf:value">{{h.render_datetime(value, date_format='%d')}} {{h.render_datetime(value)[0:5]}} {{h.render_datetime(value,date_format='%Y, %H:%M')}}</td>
+			{% else %}
+				<td class="dataset-details" property="rdf:value">{{ value }}</td>
+			{% endif %}
         </tr>
         {% endfor %}
       {% endblock %}

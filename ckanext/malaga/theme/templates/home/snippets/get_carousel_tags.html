@@ -1,0 +1,7 @@
+<div class="mlg-carrusel-tag" style="background-image:url(/images/home-slider/etiquetaspopulares.png)">
+	{% for tag, num_packages in h.mlg_top_tags(6) %}
+  		<a href="{% url_for controller='package', action='search', tags=tag.name %}"><b>{{ num_packages }}</b> {{ tag.name }} </a>
+{% endfor %}
+</div>
+
+

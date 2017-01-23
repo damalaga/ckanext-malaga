@@ -15,14 +15,17 @@
 {% set order = 'score desc, metadata_modified desc' %} 
 #}
 
-
-<div role="main" class="malaga-hero-presentacion">
+<div role="main" class="malaga-hero-presentacion" style="min-height:inherit">
 
   <div class="container">
 		{% include "/home/snippets/carrusel.html" %} 
   </div>
-
-  <div class="mlg-container-center">
+<!--
+  <div class="container mlg-no-carrusel" style="background-color:#00577D;float:center">
+		{% include "/home/snippets/carousel_resources.html" %} 
+  </div>
+-->
+  <div class="container">
 		{% include "/home/snippets/bienvenido.html" %} 
   </div>
 
@@ -38,6 +41,9 @@
         {% snippet 'home/snippets/most_downloaded_block.html', datasets=h.mlg_most_downloaded(num_max_ds,order), section_title=sec_title %}
       </div>
       <div class="span6 col2">
+        {% snippet 'home/snippets/statistics_block.html' %}
+      </div>
+      <div class="span6 col2" style="padding-top:25px">
         {% snippet 'home/snippets/participa.html' %}
       </div>
     </div>

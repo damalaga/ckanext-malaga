@@ -1,23 +1,13 @@
-<!-- footer.html start-->
-<footer class="malaga-site-footer">
-  <div class="container malaga-footer-nav">
-    {% block footer_content %}
-       	{% block footer_nav %}
-          <ul>
-       	      <li ><a href="{{ g.site_url }}/saber">{{ _('Saber más de datos abiertos').format(g.site_title) }}</a></li>
-       	      <li ><a href="http://www.malaga.eu/portal/menu/varios/politicaPrivacidad" target="_blank">Política de privacidad</a></li>
-	      <li ><a href="http://www.malaga.eu/portal/menu/varios/avisoLegal" target="_blank">Aviso legal</a></li>
-	      <li ><a href="{{ g.site_url }}/soporte">Soporte Técnico</a></li>
-	      <li >Gestionado con CKAN</li>
-	  </ul>
-	{% endblock %}
-	{% endblock %}
+<div id="footer">
+<footer>
+<div class="container">
+      {% include 'footeraytomalaga.html' %}
 </div>
-
+</footer>
+      {% include 'footerckan.html' %}
   {% block footer_debug %}
     {% if g.debug %}
       {% include 'snippets/debug.html' %}
     {% endif %}
   {% endblock %}
-</footer>
-<!-- footer.html end-->
+</div>

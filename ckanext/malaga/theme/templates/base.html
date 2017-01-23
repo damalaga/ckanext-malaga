@@ -28,6 +28,7 @@
       <meta charset="utf-8" />
       {% block meta_generator %}<meta name="generator" content="ckan {{ c.__version__ }}" />{% endblock %}
     {%- endblock -%}
+      {% block meta_viewport %}<meta name="viewport" content="width=device-width, initial-scale=1.0">{% endblock %}
 
     {#
     Add a custom title to the page by extending the title block. Call super()

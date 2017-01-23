@@ -1,18 +1,16 @@
-{%set today=h.mlg_cur_datetime(self) %}
 
-{% set recurso = h.mlg_count_resources() %}
-<div class="mlg-total-resources" align="right" style="background-image:url(/images/home-slider/portaldatosabiertos.png)">
-	{% if recurso < 1000 %}
+
+
+	
 		<img src="/images/contador/0off.png">
-	{% endif %}
-	{% for c in ""~recurso~"" %}
-		<img src="/images/contador/{{c}}.png">
-	{% endfor %}
+	
+	
+		<img src="/images/contador/7.png">
+	
+		<img src="/images/contador/5.png">
+	
+		<img src="/images/contador/9.png">
+	
 <p>
-{{ today[8:10] }}/{{ today[5:7] }}/{{ today[0:4] }}
+23/01/2017
 </p>
-</div>			
-
-
-
-
