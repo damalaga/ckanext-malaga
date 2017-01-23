@@ -14,14 +14,23 @@
 >
 <dcat:Catalog rdf:about="http://datosabiertos.malaga.eu/about">
 <dct:identifier>${ g.site_url }</dct:identifier>
+<<<<<<< HEAD
 <dct:title>${ g.site_title }</dct:title>
 <dct:description>${ g.site_description }</dct:description>
+=======
+<dct:title xml:lang="es">${ g.site_title }</dct:title>
+<dct:description xml:lang="es">${ g.site_description }</dct:description>
+>>>>>>> 4c58729f125c28ace15e97dc0ce2927f1aee523b
 <dct:publisher rdf:resource="${h.mlg_federador_value('ckan_mlg.federador_publisher')}"/>
 <dct:extent>
 <dct:SizeOrDuration>
 <py:with vars="tsize=h.mlg_fed_total_resources_size()">
 <rdf:value rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">$tsize</rdf:value>
+<<<<<<< HEAD
 <rdfs:label>$tsize bytes</rdfs:label>
+=======
+<rdfs:label xml:lang="es">$tsize bytes</rdfs:label>
+>>>>>>> 4c58729f125c28ace15e97dc0ce2927f1aee523b
 </py:with>
 </dct:SizeOrDuration>
 </dct:extent>
@@ -39,9 +48,15 @@
 <dcat:dataset>
 <dcat:Dataset rdf:about="${ h.url_for(controller='package',action='read',id=ds['name'], qualified=True)}">
 <dct:identifier>${ h.url_for(controller='package',action='read',id=ds['name'], qualified=True)}</dct:identifier>
+<<<<<<< HEAD
 <dct:title>${ds['title']}</dct:title>
 <dct:private>${ds['private']}</dct:private>
 <dct:description>${ds['notes'].replace('\n','').replace('\r',' ')}</dct:description>
+=======
+<dct:title xml:lang="es">${ds['title']}</dct:title>
+<dct:private xml:lang="es">${ds['private']}</dct:private>
+<dct:description xml:lang="es">${ds['notes'].replace('\n','').replace('\r',' ')}</dct:description>
+>>>>>>> 4c58729f125c28ace15e97dc0ce2927f1aee523b
 <py:for each="dato in ds['groups']">
 <dcat:theme py:with="groupname= dato['name']; urlgroup=h.url_for(controller='group',action='read',id='', qualified=True)" rdf:resource="http://datos.gob.es/kos/sector-publico/sector/${ groupname }"/></py:for>
 <py:for each="tag_dict in ds['tags']">

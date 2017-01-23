@@ -20,6 +20,10 @@ import ckan.lib.helpers as ckanhelper
 
 import operator #usado para ordenar los tags en orden ascendente // used asc tags order
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 4c58729f125c28ace15e97dc0ce2927f1aee523b
 #ckan2.4
 # mlg_org_counter: Devuelve el numero de conjunto de datos asociados a la organizacion que se pasa en el id
 # mlg_org_counter: Returns number of datasets in id organization
@@ -44,6 +48,17 @@ def mlg_group_counter(id):
 def mlg_ds_list():
 	return toolkit.get_action('package_list')(data_dict={})
 
+<<<<<<< HEAD
+=======
+=======
+#ckan2.3
+# mlg_ds_list: Devuelve la lista de datasets 
+# mlg_ds_list: Returns datasets name list
+def mlg_ds_list():
+	return toolkit.get_action('package_list')(data_dict={})
+
+>>>>>>> fce8223387d9ba420a2f5e157f98c874e692114b
+>>>>>>> 4c58729f125c28ace15e97dc0ce2927f1aee523b
 #ckan2.3	
 # mlg_count_resources: Devuelve el numero de recursos.
 # mlg_count_resources: Returns numbers of resources
@@ -177,7 +192,17 @@ class malagae(p.SingletonPlugin):
 		'mlg_federador_value':fed.mlg_federador_value,
 		'mlg_ds_list': mlg_ds_list,
 		'mlg_top_tags': mlg_top_tags,
+<<<<<<< HEAD
 		'mlg_ds_resources_list': mlg_ds_resources_list,
 		'mlg_organization_counter': mlg_organization_counter,
 		'mlg_group_counter': mlg_group_counter
+=======
+<<<<<<< HEAD
+		'mlg_ds_resources_list': mlg_ds_resources_list,
+		'mlg_organization_counter': mlg_organization_counter,
+		'mlg_group_counter': mlg_group_counter
+=======
+		'mlg_ds_resources_list': mlg_ds_resources_list
+>>>>>>> fce8223387d9ba420a2f5e157f98c874e692114b
+>>>>>>> 4c58729f125c28ace15e97dc0ce2927f1aee523b
 }
