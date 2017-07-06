@@ -12,6 +12,12 @@ Esta extensión funciona en versiones de CKAN iguales o mayores a 2.3 (CKAN resp
 
 ckanext-malaga es la extensión que el Centro Municipal de Informática [CEMI](http://cemi.malaga.eu) ha desarrollado para adaptar la plataforma a las necesidades específicas del ayuntamiento.
 
+## Federación:
+
+La federación del portal en datos.gob.es se hace ahora con una extensión independiente a esta que también ha sido desarrollada por el [CEMI](http://cemi.malaga.eu).
+
+La federación está disponible en [ckanext-federador](https://github.com/damalaga/ckanext-federador)
+
 ## Instalación y configuración del portal de datos abiertos.
 Los pasos para reproducir el portal de datos abiertos del Ayuntamiento de Málaga son los siguientes:
 * Instalar Ubuntu 14.04.2.
@@ -56,13 +62,6 @@ licenses_group_url = # Fichero de licencias en nuestro caso seria file:///home/c
 * Tablero de grupos y organizaciones.
 * Formulario de contacto usando la extensión ckanext-contacto.
 * Modo responsive (compatible para móviles).
-
-
-### Federación:
-
-En versiones anteriores, la federación en datos.gob.es estaba incluída en el código de esta extensión.
-
-A partir de esta versión, la federación es independiente a este módulo. La federación está disponible en [ckanext-federador](https://github.com/damalaga/ckanext-federador)
 
 ### Slides de carrusel:
 
