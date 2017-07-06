@@ -12,28 +12,17 @@ Esta extensión funciona en versiones de CKAN iguales o mayores a 2.3 (CKAN resp
 
 ckanext-malaga es la extensión que el Centro Municipal de Informática [CEMI](http://cemi.malaga.eu) ha desarrollado para adaptar la plataforma a las necesidades específicas del ayuntamiento.
 
-##
-
-##Instalación y configuración del portal de datos abiertos.
+## Instalación y configuración del portal de datos abiertos.
 Los pasos para reproducir el portal de datos abiertos del Ayuntamiento de Málaga son los siguientes:
 * Instalar Ubuntu 14.04.2.
 * Instalar la última versión de CKAN disponible en formato "instalar desde fuente", las instrucciones se encuentran en este enlace [CKAN install from source](http://docs.ckan.org/en/latest/maintaining/installing/install-from-source.html).
 * Seguir los pasos que explicamos a continuación.
 * NOTA: Los iconos de grupos y organizaciones que proporcionamos en este repositorio se corresponde con la categorización requerida según la NTI (http://www.boe.es/boe/dias/2013/03/04/pdfs/BOE-A-2013-2380.pdf) y que son imprescindibles para la federación de los datos en (http://datos.gob.es/catalogo).
 
-##Requisitos
+### Requisitos
 * ckanext-malaga usa la extesión [ckanext-contacto](https://github.com/damalaga/ckanext-contacto), por lo que tiene que estar instalada también. Esta extensión permite crear un formulario de contacto y ha sido desarrollada por [Centro Municipal de Informática](http://cemi.malaga.eu)
 
-##Funcionalidades implementadas:
-* Carrusel de la pantalla principal con bootstrap.
-* Opción "aplicaciones" en el menú principal que abre una sección con el listado de aplicaciones que usan nuestros catálogo de datos.
-* Tablero de grupos y organizaciones.
-* Formulario de contacto usando la extensión ckanext-contacto.
-* Modo responsive (compatible para móviles).
-
-###Instalación de ckanext-malaga
-=======
-###Descarga de la extensión
+### Descarga de la extensión
 
 * Conectarse a la máquina de CKAN con el usuario de ckan.
 * Ir al directorio de instalación de la extensión (en nuestro caso):
@@ -43,32 +32,39 @@ Los pasos para reproducir el portal de datos abiertos del Ayuntamiento de Málag
 * Desplegarla
 <p>python setup.py develop</p>
 
-###Configuración de la extensión
+### Configuración de la extensión
 Añadir la siguiente configuración en el fichero .ini y reiniciar apache2:
 <pre>
 <code>
-#Añadimos la extension en ckan.plugins
+Añadimos la extension en ckan.plugins
 ckan.plugins = .... malaga
 
-#indica donde se encuentra la entrada "aplicaciones" del menú, en nuestro caso esta en el home y se llama aplicaciones.html
+indica donde se encuentra la entrada "aplicaciones" del menú, en nuestro caso esta en el home y se llama aplicaciones.html
 ckan_mlg.apl_url = aplicaciones.html 
 
 #################
 
-#configuracion relacionada con el fichero de licencia
+configuracion relacionada con el fichero de licencia
 licenses_group_url = # Fichero de licencias en nuestro caso seria file:///home/ckan/ckan/lib/default/src/ckanext-malaga/ckanext/malaga/public/licencias.json
 </code></pre>
 </code>
 </pre>
 
+## Funcionalidades implementadas:
+* Carrusel de la pantalla principal con bootstrap.
+* Opción "aplicaciones" en el menú principal que abre una sección con el listado de aplicaciones que usan nuestros catálogo de datos.
+* Tablero de grupos y organizaciones.
+* Formulario de contacto usando la extensión ckanext-contacto.
+* Modo responsive (compatible para móviles).
 
-##PROCESO DE FEDERACIÓN:
+
+### Federación:
 
 En versiones anteriores, la federación en datos.gob.es estaba incluída en el código de esta extensión.
 
 A partir de esta versión, la federación es independiente a este módulo. La federación está disponible en [ckanext-federador](https://github.com/damalaga/ckanext-federador)
 
-##SLIDES DEL CARRUSEL:
+### Slides de carrusel:
 
 El carrusel usa el módulo bootstrap que incluye CKAN.
 La configuración y uso de la misma está hecha según la documentación oficial de la misma.
@@ -88,17 +84,17 @@ Siendo get_carousel_XXXX.html el html que recopila la información y carousel_XX
 
 NOTA: Una vez instalado esta extensión, hay que ejecutar los tres ficheros html para que se rellenen con información, porque inicialmente están vacíos.
 
-##TABLERO DE GRUPOS Y ORGANIZACIONES:
+### Tablero de grupos y organizaciones
 
 Inicialmente se recopilan los grupos y organizaciones del portal. Cada grupo/organización tiene dos imágenes de 50x50 píxeles uno con el nombre del grupo/organización y otro fichero con el nombre del grupo/organización terminado en "on".
 
 Las imágenes de los grupos y organizaciones están clasificados según nuestras necesidades, por lo que los iconos sólo aparecen si los grupos y organizaciones existen, en otro caso, no aparecerá ninguna imagen.
 
-## FORMULARIO DE CONTACTO
+### Formulario de contacto
 Los desarrolladores que usen nuestra API, pueden rellenar un formulario de contacto para que demos de alta su aplicación en nuestra página de "aplicaciones disponibles", para ello, hemos usado una extensión que hemos desarrollado y que está disponible en (https://github.com/damalaga/ckanext-contact)
 
 =======
-##Licencia:
+## Licencia:
 
 El código de esta aplicación puede ser reutilizado, modificado y adaptado a las necesidades de los distintos portales de forma libre. Si utilizas nuestro código o parte de él, por favor, incluye nuestro logo en el cabecero o pie de página a modo de reconocimiento a Datos abiertos Málaga. Gracias! 
 
