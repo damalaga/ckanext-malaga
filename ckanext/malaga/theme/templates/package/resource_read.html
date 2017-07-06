@@ -1,7 +1,6 @@
 {% extends "package/base.html" %}
 
 {% set res = c.resource %}
-
 {% block head_extras -%}
   {{ super() }}
   {% set description = h.markdown_extract(res.description, extract_length=200) if res.description else h.markdown_extract(c.package.notes, extract_length=200) %}
@@ -24,11 +23,11 @@
       <div class="module-content">
         <div class="actions">
           {% block resource_actions %}
-          <ul>
+          <ul>            
             {% block resource_actions_inner %}
             {% if h.check_access('package_update', {'id':pkg.id }) %}
               <li>{% link_for _('Manage'), controller='package', action='resource_edit', id=pkg.name, resource_id=res.id, class_='btn', icon='wrench' %}</li>
-            {% endif %}
+            {% endif %}            
             {% if res.url %}
               <li>
                 <a class="btn btn-primary resource-url-analytics resource-type-{{ res.resource_type }}" href="{{ res.url }}">

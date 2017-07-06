@@ -40,9 +40,17 @@
       <div class="span6 col1">
         {% snippet 'home/snippets/most_downloaded_block.html', datasets=h.mlg_most_downloaded(num_max_ds,order), section_title=sec_title %}
       </div>
-      <div class="span6 col2" style="padding-top:10px">
+      <div class="span6 col2">
+		  {% snippet 'home/snippets/tags_cloud.html' %}
+	  </div>
+
+<!--      <div class="span6 col2">
+        {% snippet 'home/snippets/statistics_block.html' %}
+      </div>
+      <div class="span6 col2" style="padding-top:25px">
         {% snippet 'home/snippets/participa.html' %}
       </div>
+-->      
     </div>
   </div>
 </div>

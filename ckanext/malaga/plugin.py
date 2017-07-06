@@ -8,8 +8,6 @@
 
 import ckan.plugins as p
 
-import federador as fed
-
 import os
 
 import ckan.plugins.toolkit as toolkit
@@ -19,6 +17,24 @@ import urllib
 import ckan.lib.helpers as ckanhelper
 
 import operator #usado para ordenar los tags en orden ascendente // used asc tags order
+
+#ckan2.4
+# mlg_org_counter: Devuelve el numero de conjunto de datos asociados a la organizacion que se pasa en el id
+# mlg_org_counter: Returns number of datasets in id organization
+
+def mlg_organization_counter(id):
+	data_dict = {'id':id,
+		     'include_datasets':True}
+	return toolkit.get_action('organization_show')(data_dict=data_dict)['package_count']
+
+#ckan2.4
+# mlg_group_counter: Devuelve el numero de conjunto de datos asociados a un grupo que se pasa en el id
+# mlg_group_counter: Returns number of datasets in id group
+
+def mlg_group_counter(id):
+	data_dict = {'id':id,
+		     'include_datasets':True}
+	return toolkit.get_action('group_show')(data_dict=data_dict)['package_count']
 
 #ckan2.3
 # mlg_ds_list: Devuelve la lista de datasets 
@@ -64,7 +80,8 @@ def mlg_ds_resources_list(dsname):
 # and total visits (tracking_summary['total'])
 def mlg_tracking_summary(iddataset):
 
-	data_dict = {"id":iddataset}
+	data_dict = {"id":iddataset,
+		     "include_tracking":True}
 	
 	response = toolkit.get_action('package_show')(data_dict=data_dict)
 	return response['tracking_summary']
@@ -113,7 +130,6 @@ class malagae(p.SingletonPlugin):
 
 #iruiz: Redefinir before_map para
 # apl = nueva entrada en el menu, que se llama aplicaciones.
-# federador = los ficheros que se usan en la federacion
 
 # Redefine before_map:
     def before_map(self, m):
@@ -128,16 +144,6 @@ class malagae(p.SingletonPlugin):
 	controller='ckanext.malaga.controller:AplicacionesController', #controller
 	action='aplicaciones', apl_url=apl_url_config) #controller action (method)
 
-# Redefine before_map: URL /local/generador execute GenerarRDF and generate rdf file used on datos.gob.es federacion
-	federador_fname = config['ckan_mlg.federador_file']             #rdf filename (include path)
-	federador_template = config['ckan_mlg.federador_template']      #loading rdf template filename (include path)
-	federador_process = config['ckan_mlg.federador_process']        #federador process
-
-	m.connect(federador_process, #name of path route
-	'/'+federador_process, #url to map path to
-	controller='ckanext.malaga.generadorrdf:GenerarRDF', #controller
-	action='generar',fname=federador_fname, template=federador_template) #controller
-
 	return m
 
     def update_config(self, config):
@@ -151,12 +157,11 @@ class malagae(p.SingletonPlugin):
 		'mlg_tracking_summary': mlg_tracking_summary,
 		'mlg_most_downloaded': mlg_most_downloaded,
 		'mlg_cur_datetime': mlg_cur_datetime,
-		'mlg_fed_datasets_related': fed.mlg_fed_datasets_related,
-		'mlg_fed_total_resources_size': fed.mlg_fed_total_resources_size,
 		'mlg_group_list': mlg_group_list,
 		'mlg_organization_list': mlg_organization_list,
-		'mlg_federador_value':fed.mlg_federador_value,
 		'mlg_ds_list': mlg_ds_list,
 		'mlg_top_tags': mlg_top_tags,
-		'mlg_ds_resources_list': mlg_ds_resources_list
+		'mlg_ds_resources_list': mlg_ds_resources_list,
+		'mlg_organization_counter': mlg_organization_counter,
+		'mlg_group_counter': mlg_group_counter
 }
