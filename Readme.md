@@ -92,7 +92,6 @@ Las imágenes de los grupos y organizaciones están clasificados según nuestras
 ### Formulario de contacto
 Los desarrolladores que usen nuestra API, pueden rellenar un formulario de contacto para que demos de alta su aplicación en nuestra página de "aplicaciones disponibles", para ello, hemos usado una extensión que hemos desarrollado y que está disponible en (https://github.com/damalaga/ckanext-contact)
 
-=======
 ## Licencia:
 
 El código de esta aplicación puede ser reutilizado, modificado y adaptado a las necesidades de los distintos portales de forma libre. Si utilizas nuestro código o parte de él, por favor, incluye nuestro logo en el cabecero o pie de página a modo de reconocimiento a Datos abiertos Málaga. Gracias! 
