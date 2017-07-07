@@ -20,7 +20,7 @@ Los pasos para reproducir el portal de datos abiertos del Ayuntamiento de Málag
 ### Requisitos
 * ckanext-malaga usa la extensión [ckanext-contacto](https://github.com/damalaga/ckanext-contacto), por lo que tiene que estar instalada también.
 
-* Esta extensión funciona en versiones de CKAN iguales o mayores a 2.3 (CKAN responsive), para versiones anteriores esta versión <b>NO ESTÁ PROBADA</b>.
+* Esta extensión funciona en versiones de CKAN iguales o mayores a 2.3 (CKAN responsive), no está probada en versiones anteriores.
 
 
 ### Descarga de la extensión
