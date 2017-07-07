@@ -1,5 +1,6 @@
 
 ![Logo datos abiertos Málaga](https://github.com/damalaga/ckanext-malaga/blob/master/ckanext/malaga/public/images/logoportaldatosabiertos.png)
+
 ckanext-malaga
 ==============
 
@@ -11,12 +12,6 @@ El [Portal de Datos Abiertos del Ayuntamiento de Málaga](http://datosabiertos.m
 Esta extensión funciona en versiones de CKAN iguales o mayores a 2.3 (CKAN responsive), para versiones anteriores esta versión <b>NO ESTÁ PROBADA</b>.
 
 ckanext-malaga es la extensión que el Centro Municipal de Informática [CEMI](http://cemi.malaga.eu) ha desarrollado para adaptar la plataforma a las necesidades específicas del ayuntamiento.
-
-## Federación:
-
-La federación del portal en datos.gob.es se hace ahora con una extensión independiente a esta que también ha sido desarrollada por el [CEMI](http://cemi.malaga.eu).
-
-La federación está disponible en [ckanext-federador](https://github.com/damalaga/ckanext-federador)
 
 ## Instalación y configuración del portal de datos abiertos.
 Los pasos para reproducir el portal de datos abiertos del Ayuntamiento de Málaga son los siguientes:
@@ -91,6 +86,13 @@ Las imágenes de los grupos y organizaciones están clasificados según nuestras
 
 ### Formulario de contacto
 Los desarrolladores que usen nuestra API, pueden rellenar un formulario de contacto para que demos de alta su aplicación en nuestra página de "aplicaciones disponibles", para ello, hemos usado una extensión que hemos desarrollado y que está disponible en (https://github.com/damalaga/ckanext-contact)
+
+## Federación:
+
+La federación del portal en datos.gob.es se hace ahora con una extensión independiente a esta que también ha sido desarrollada por el [CEMI](http://cemi.malaga.eu).
+
+La federación está disponible en [ckanext-federador](https://github.com/damalaga/ckanext-federador)
+
 
 ## Licencia:
 
