@@ -8,9 +8,6 @@ El [Portal de Datos Abiertos del Ayuntamiento de Málaga](http://datosabiertos.m
 
 [CKAN](http://ckan.org) es un portal de código abierto, diseñado y desarrolado para que los gobiernos locales y estatales puedan publicar y compartir su datos abiertos fácilmente. 
 
-<b>IMPORTANTE:</b>
-Esta extensión funciona en versiones de CKAN iguales o mayores a 2.3 (CKAN responsive), para versiones anteriores esta versión <b>NO ESTÁ PROBADA</b>.
-
 ckanext-malaga es la extensión que el Centro Municipal de Informática [CEMI](http://cemi.malaga.eu) ha desarrollado para adaptar la plataforma a las necesidades específicas del ayuntamiento.
 
 ## Instalación y configuración del portal de datos abiertos.
@@ -21,7 +18,10 @@ Los pasos para reproducir el portal de datos abiertos del Ayuntamiento de Málag
 * NOTA: Los iconos de grupos y organizaciones que proporcionamos en este repositorio se corresponde con la categorización requerida según la NTI (http://www.boe.es/boe/dias/2013/03/04/pdfs/BOE-A-2013-2380.pdf) y que son imprescindibles para la federación de los datos en (http://datos.gob.es/catalogo).
 
 ### Requisitos
-* ckanext-malaga usa la extesión [ckanext-contacto](https://github.com/damalaga/ckanext-contacto), por lo que tiene que estar instalada también. Esta extensión permite crear un formulario de contacto y ha sido desarrollada por [Centro Municipal de Informática](http://cemi.malaga.eu)
+* ckanext-malaga usa la extensión [ckanext-contacto](https://github.com/damalaga/ckanext-contacto), por lo que tiene que estar instalada también.
+
+* Esta extensión funciona en versiones de CKAN iguales o mayores a 2.3 (CKAN responsive), para versiones anteriores esta versión <b>NO ESTÁ PROBADA</b>.
+
 
 ### Descarga de la extensión
 
