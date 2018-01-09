@@ -1,0 +1,60 @@
+# Translations template for ckan.
+# Copyright (C) 2017 ORGANIZATION
+# This file is distributed under the same license as the ckan project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2017.
+# 
+
+msgid ""
+msgstr ""
+
+"Project-Id-Version: ckan 2.7.0b0\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2017-06-21 15:47+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Adrià Mercader <adria.mercader@okfn.org>, 2017\n"
+"Language-Team: Spanish (https://www.transifex.com/okfn/teams/11162/es/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.4.0\n"
+"Language: es\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+
+#: ckanext/malaga/theme/templates/packages/resource_read.html:175
+msgid "datastore active"
+msgstr "Datastore activado"
+
+#: ckanext/malaga/theme/templates/packages/resource_read.html:175
+msgid "format"
+msgstr "Formato"
+
+#: ckanext/malaga/theme/templates/packages/resource_read.html:175
+msgid "has views"
+msgstr "Tiene vistas"
+
+#: ckanext/malaga/theme/templates/packages/resource_read.html:175
+msgid "last modified"
+msgstr "Última modificación"
+
+#: ckanext/malaga/theme/templates/packages/resource_read.html:175
+msgid "on same domain"
+msgstr "en el mismo dominio"
+
+#: ckanext/malaga/theme/templates/packages/resource_read.html:175
+msgid "package id"
+msgstr "Id del paquete"
+
+#: ckanext/malaga/theme/templates/packages/resource_read.html:175
+msgid "revision id"
+msgstr "Id de la revisión"
+
+#: ckanext/malaga/theme/templates/packages/resource_read.html:175
+msgid "state"
+msgstr "Estado"
+
+#: ckanext/malaga/theme/templates/packages/resource_read.html:175
+msgid "url type"
+msgstr "Tipo de URL"
+
+

@@ -22,11 +22,12 @@ setup(
 	install_requires=[
 		# -*- Extra requirements: -*-
 	],
-	entry_points='''	
-	[paste.paster_command]
-	malaga = ckanext.malaga.commands:malagae
-        [ckan.plugins]
-        malaga=ckanext.malaga.plugin:malagae
-	''',
+	entry_points={
+	'paste.paster_command':[
+		'dscleanup = ckanext.malaga.command:AdminCommand'],
+     'ckan.plugins': [
+     'malaga=ckanext.malaga.plugin:malagae']
+	}	
+	
 )
 

@@ -2,7 +2,6 @@
 
 {% set res = c.resource %}
 
-
 {% block head_extras -%}
   {{ super() }}
   {% set description = h.markdown_extract(h.get_translated(res, 'description'), extract_length=200) if res.description else h.markdown_extract(h.get_translated(c.package, 'notes'), extract_length=200) %}
@@ -16,6 +15,7 @@
 
 {% block breadcrumb_content %}
   {{ super() }}
+
   <li class="active"><a href="">{{ h.resource_display_name(res)|truncate(30) }}</a></li>
 {% endblock %}
 
@@ -152,16 +152,16 @@
             </thead>
             <tbody>
               <tr>
-                <th scope="row">{{ _('Data last updated') }}</th>
-                <td>{{ h.render_datetime(res.last_modified) or h.render_datetime(res.created) or _('unknown') }}</td>
+                <th scope="row">{{ _('Data last updated') }}</th>{% snippet 'snippets/local_friendly_datetime_mlg.html', datetime_obj=res.last_modified %}
+                <td>{{ h.render_datetime(res.last_modified) + h.render_datetime(res.last_modified,date_format=' %H:%M') or h.render_datetime(res.Creado) + h.render_datetime(res.Creado,date_format=' %H:%M') or _('unknown') }}</td>
               </tr>
               <tr>
                 <th scope="row">{{ _('Metadata last updated') }}</th>
-                <td>{{ h.render_datetime(res.revision_timestamp) or h.render_datetime(res.Creado) or _('unknown') }}</td>
+                <td>{{ h.render_datetime(res.revision_timestamp) or h.render_datetime(res.Creado)+' '+h.render_datetime(res.Creado,date_format=' %H:%M') or _('unknown') }}</td>
               </tr>
               <tr>
                 <th scope="row">{{ _('Created') }}</th>
-                <td>{{ h.render_datetime(res.Creado) or _('unknown') }}</td>
+                <td>{{ h.render_datetime(res.Creado)+' '+h.render_datetime(res.Creado,date_format=' %H:%M') or _('unknown') }}</td>
               </tr>
               <tr>
                 <th scope="row">{{ _('Format') }}</th>

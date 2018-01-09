@@ -72,7 +72,7 @@
         <tr rel="dc:relation" resource="_:extra{{ i }}">
           <th scope="row" class="dataset-label" property="rdfs:label">{{ _(key) }}</th>
 			{% if (key[:5] == 'Fecha') %}
-				<td class="dataset-details" property="rdf:value">{{h.render_datetime(value, date_format='%d')}} {{h.render_datetime(value)[0:5]}} {{h.render_datetime(value,date_format='%Y, %H:%M')}}</td>
+				<td class="dataset-details" property="rdf:value">{{h.render_datetime(value, date_format='%d')}} {{h.render_datetime(value)[0:3]}} {{h.render_datetime(value,date_format='%Y, %H:%M')}}</td>
 			{% else %}
 				<td class="dataset-details" property="rdf:value">{{ value }}</td>
 			{% endif %}
