@@ -19,20 +19,21 @@
 
       {% block header_site_search %}
         <form class="section site-search simple-input" action="{% url_for controller='package', action='search' %}" method="get" style="width:20%;float:right">
-          <div class="field">
+          <div class="field" style="padding-top:4px">
             <label for="field-sitewide-search">{% block header_site_search_label %}{{ _('Search Datasets') }}{% endblock %}</label>
             <input id="field-sitewide-search" type="text" name="q" placeholder="{{ _('Search') }}" />
-            <button class="btn-search" type="submit"></button>
+            <button class="btn-search" type="submit">
+				<i class="fa fa-search"> </i></button>
           </div>
         </form>
-<div class="field" id="google_translate_element" style="float:right;padding-right:10px;padding-top:2px;"></div>
+<div class="field" id="google_translate_element" style="float:right;padding-right:10px;padding-top:5px;"></div>
       {% endblock %}
       {% block header_account_container_content %}
 <a class="logo" href="http://www.malaga.eu"><img src="/images/logoayto.png" alt="http://www.malaga.eu" title="Ayuntamiento de Málaga" /></a>
 
         {% if c.userobj %}
           <div class="account avatar authed" data-module="me" data-me="{{ c.userobj.id }}">
-            <ul class="unstyled">
+            <ul class="unstyled" style="padding-top:5px">
               {% block header_account_logged %}
               {% if c.userobj.sysadmin %}
                 <li>
@@ -78,7 +79,7 @@
           </div>
         {% else %}
           <nav class="account not-authed">
-            <ul class="unstyled">
+            <ul class="unstyled" style="padding-top:5px">
               {% block header_account_notlogged %}
               <li>{% link_for _('Log in'), controller='user', action='login' %}</li>
               {% if h.check_access('user_create') %}
@@ -102,7 +103,7 @@
       {% endblock %}
 
     </hgroup>
-	<div class="mlg-social" style="float:right">{%include "redes.html"%}</div>
+	<div class="mlg-social" style="float:right">{%include "snippets/redes.html"%}</div>
     </div>
 
 {% endblock %}

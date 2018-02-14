@@ -18,6 +18,8 @@ import ckan.lib.helpers as ckanhelper
 
 import operator #usado para ordenar los tags en orden ascendente // used asc tags order
 
+import ast #usado para transformar un str a dict
+
 #ckan2.4
 # mlg_org_counter: Devuelve el numero de conjunto de datos asociados a la organizacion que se pasa en el id
 # mlg_org_counter: Returns number of datasets in id organization
@@ -136,13 +138,18 @@ class malagae(p.SingletonPlugin):
 
 	import pylons.config as config 
 
-# Redefine before_map: include aplicaciones on main menu
-	apl_url_config = config['ckan_mlg.apl_url']                     #loading url ckan must open
+# Redefine before_map: incluye todos los pares URL redefinidas en el fichero ini:
+	
+		
+	_mlgbeforemap = ast.literal_eval(config['ckan_mlg.before_map'])
+	
+	for _keybeforemap in _mlgbeforemap:
+		m.connect(_keybeforemap, #name of path route
+		'/'+_keybeforemap, #url to map path to
+		controller='ckanext.malaga.controller:AplicacionesController', #controller
+		action='printPage', apl_url=_mlgbeforemap[_keybeforemap]) #controller action (method)
 
-	m.connect('aplicaciones', #name of path route
-	'/aplicaciones', #url to map path to
-	controller='ckanext.malaga.controller:AplicacionesController', #controller
-	action='aplicaciones', apl_url=apl_url_config) #controller action (method)
+		
 
 	return m
 
