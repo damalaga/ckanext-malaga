@@ -49,10 +49,10 @@ Añadir la siguiente configuración en el fichero .ini y reiniciar apache2:
 Añadimos la extension en ckan.plugins
 ckan.plugins = .... malaga
 
-indica donde se encuentra la entrada "aplicaciones" del menú, en nuestro caso esta en el home y se llama aplicaciones.html
-ckan_mlg.apl_url = aplicaciones.html 
+Añadimos el listado de mapeos y las ubicaciones de los html correspondientes en la variable ckan_mlg.before_map:
 
-#################
+ckan_mlg.before_map={'aplicaciones':'snippets/aplicaciones.html','detallestecnicos':'snippets/detallestecnicos.html', 'soporte':'snippets/soporte.html','disponibilidad':'snippets/disponibilidad.html'}
+
 
 configuracion relacionada con el fichero de licencia
 licenses_group_url = # Fichero de licencias en nuestro caso seria file:///home/ckan/ckan/lib/default/src/ckanext-malaga/ckanext/malaga/public/licencias.json
@@ -76,11 +76,11 @@ El carrusel se compone de cinco slides, los tres primeros: recuento de recursos,
 El cron tiene las siguientes órdenes:
 <pre>
 <code>
-wget http://URL/home/snippets/get_carousel_tags.html -O /home/ckan/ckan/lib/default/src/ckanext-malaga/ckanext/malaga/theme/templates/home/snippets/carousel_tags.html</code>
+wget http://URL/home/snippets/generarcarrusel/get_carousel_tags.html -O /home/ckan/ckan/lib/default/src/ckanext-malaga/ckanext/malaga/theme/templates/home/snippets/carousel_tags.html</code>
 <code>
-wget http://URL/home/snippets/get_carousel_stats.html -O /home/ckan/ckan/lib/default/src/ckanext-malaga/ckanext/malaga/theme/templates/home/snippets/carousel_stats.html</code>
+wget http://URL/home/snippets/generarcarrusel/get_carousel_stats.html -O /home/ckan/ckan/lib/default/src/ckanext-malaga/ckanext/malaga/theme/templates/home/snippets/carousel_stats.html</code>
 <code>
-wget http://URL/home/snippets/get_carousel_resources.html -O /home/ckan/ckan/lib/default/src/ckanext-malaga/ckanext/malaga/theme/templates/home/snippets/carousel_resources.html</code>
+wget http://URL/home/snippets/generarcarrusel/get_carousel_resources.html -O /home/ckan/ckan/lib/default/src/ckanext-malaga/ckanext/malaga/theme/templates/home/snippets/carousel_resources.html</code>
 </pre>
 
 Siendo get_carousel_XXXX.html el html que recopila la información y carousel_XXXX.html el contenido estático.
