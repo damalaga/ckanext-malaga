@@ -11,106 +11,81 @@
   <link rel="stylesheet" href="/css/mlg.css" type="text/css" media="screen, projection" />
   <link rel="stylesheet" href="/css/mlg-responsive.css" type="text/css" media="screen, projection" />
 {% block header_account %}
-  <header class="account-masthead mlg-container">
 
-	
-     <div class="container">
-    {# The .header-image class hides the main text and uses image replacement for the title #}
+<header class="account-masthead mlg-container">
 
-      {% block header_site_search %}
+  <div class="container">
+	        {% block header_site_search %}
         <form class="section site-search simple-input" action="{% url_for controller='package', action='search' %}" method="get" style="width:20%;float:right">
-          <div class="field">
+          <div class="field" style="padding-top:4px">
             <label for="field-sitewide-search">{% block header_site_search_label %}{{ _('Search Datasets') }}{% endblock %}</label>
             <input id="field-sitewide-search" type="text" name="q" placeholder="{{ _('Search') }}" />
-            <button class="btn-search" type="submit"></button>
+            <button class="btn-search" type="submit">
+				<i class="fa fa-search"> </i></button>
           </div>
         </form>
-<div class="field" id="google_translate_element" style="float:right;padding-right:10px;padding-top:2px;"></div>
+<div class="field" id="google_translate_element" style="float:right;padding-right:10px;padding-top:5px;"></div>
       {% endblock %}
-      {% block header_account_container_content %}
 <a class="logo" href="http://www.malaga.eu"><img src="/images/logoayto.png" alt="http://www.malaga.eu" title="Ayuntamiento de Málaga" /></a>
 
-        {% if c.userobj %}
-          <div class="account avatar authed" data-module="me" data-me="{{ c.userobj.id }}">
-            <ul class="unstyled">
-              {% block header_account_logged %}
-              {% if c.userobj.sysadmin %}
-                <li>
-                  <a href="{{ h.url_for(controller='admin', action='index') }}" title="{{ _('Sysadmin settings') }}">
-                    <i class="fa fa-gavel" aria-hidden="true"></i>
-                    <span class="text">{{ _('Admin') }}</span>
-                  </a>
-                </li>
-              {% endif %}
-              <li>
-                <a href="{{ h.url_for(controller='user', action='read', id=c.userobj.name) }}" class="image" title="{{ _('View profile') }}">
+    {% block header_account_container_content %} {% if c.userobj %}
+    <div class="account avatar authed" data-module="me" data-me="{{ c.userobj.id }}">
+      <ul class="list-unstyled">
+        {% block header_account_logged %} {% if c.userobj.sysadmin %}
+        <li>
+          <a href="{{ h.url_for(controller='admin', action='index') }}" title="{{ _('Sysadmin settings') }}">
+            <i class="fa fa-gavel" aria-hidden="true"></i>
+            <span class="text">{{ _('Admin') }}</span>
+          </a>
+        </li>
+        {% endif %}
+        <li>
+          <a href="{{ h.url_for('user.read', id=c.userobj.name) }}" class="image" title="{{ _('View profile') }}">
                   {{ h.gravatar((c.userobj.email_hash if c and c.userobj else ''), size=22) }}
                   <span class="username">{{ c.userobj.display_name }}</span>
                 </a>
-              </li>
-              {% set new_activities = h.new_activities() %}
-              <li class="notifications {% if new_activities > 0 %}notifications-important{% endif %}">
-                {% set notifications_tooltip = ngettext('Dashboard (%(num)d new item)', 'Dashboard (%(num)d new items)', new_activities) %}
-                <a href="{{ h.url_for(controller='user', action='dashboard') }}" title="{{ notifications_tooltip }}">
-                  <i class="fa fa-tachometer" aria-hidden="true"></i>
-                  <span class="text">{{ _('Dashboard') }}</span>
-                  <span class="badge">{{ new_activities }}</span>
-                </a>
-              </li>
-              {% block header_account_settings_link %}
-                <li>
-                  <a href="{{ h.url_for(controller='user', action='edit', id=c.userobj.name) }}" title="{{ _('Edit settings') }}">
-                    <i class="fa fa-cog" aria-hidden="true"></i>
-                    <span class="text">{{ _('Settings') }}</span>
-                  </a>
-                </li>
-              {% endblock %}
-              {% block header_account_log_out_link %}
-                <li>
-                  <a href="{{ h.url_for('/user/_logout') }}" title="{{ _('Log out') }}">
-                    <i class="fa fa-sign-out" aria-hidden="true"></i>
-                    <span class="text">{{ _('Log out') }}</span>
-                  </a>
-                </li>
-              {% endblock %}
-              {% endblock %}
-            </ul>
-          </div>
-        {% else %}
-          <nav class="account not-authed">
-            <ul class="unstyled">
-              {% block header_account_notlogged %}
-              <li>{% link_for _('Log in'), controller='user', action='login' %}</li>
-              {% if h.check_access('user_create') %}
-                <li>{% link_for _('Register'), controller='user', action='register', class_='sub' %}</li>
-              {% endif %}
-              {% endblock %}
-            </ul>
-          </nav>
-        {% endif %}
-      </div>
-      {% endblock %}
-    
-
-</header>
-
-    <div class="container mlg-menu" >
-    <hgroup class="{{ g.header_class }} pull-left" >
-
-      {% block header_logo %}
-	<a href="{{ h.url('home') }}"><img src="/images/logoportaldatosabiertos.png"> </a>
-      {% endblock %}
-
-    </hgroup>
-	<div class="mlg-social" style="float:right">{%include "redes.html"%}</div>
+        </li>
+        {% set new_activities = h.new_activities() %}
+        <li class="notifications {% if new_activities > 0 %}notifications-important{% endif %}">
+          {% set notifications_tooltip = ngettext('Dashboard (%(num)d new item)', 'Dashboard (%(num)d new items)', new_activities)
+          %}
+          <a href="{{ h.url_for('dashboard.index') }}" title="{{ notifications_tooltip }}">
+            <i class="fa fa-tachometer" aria-hidden="true"></i>
+            <span class="text">{{ _('Dashboard') }}</span>
+            <span class="badge">{{ new_activities }}</span>
+          </a>
+        </li>
+        {% block header_account_settings_link %}
+        <li>
+          <a href="{{ h.url_for('user.edit', id=c.userobj.name) }}" title="{{ _('Edit settings') }}">
+            <i class="fa fa-cog" aria-hidden="true"></i>
+            <span class="text">{{ _('Settings') }}</span>
+          </a>
+        </li>
+        {% endblock %} {% block header_account_log_out_link %}
+        <li>
+          <a href="{{ h.url_for('/user/_logout') }}" title="{{ _('Log out') }}">
+            <i class="fa fa-sign-out" aria-hidden="true"></i>
+            <span class="text">{{ _('Log out') }}</span>
+          </a>
+        </li>
+        {% endblock %} {% endblock %}
+      </ul>
     </div>
-
+    {% else %}
+    <nav class="account not-authed">
+      <ul class="list-unstyled">
+        {% block header_account_notlogged %}
+        <li>{% link_for _('Log in'), named_route='user.login' %}</li>
+        {% if h.check_access('user_create') %}
+        <li>{% link_for _('Register'), named_route='user.register', class_='sub' %}</li>
+        {% endif %} {% endblock %}
+      </ul>
+    </nav>
+    {% endif %} {% endblock %}
+  </div>
+</header>
 {% endblock %}
-{% endblock %}
-
-
-
-
 <header class="navbar navbar-static-top masthead mlg-navbar">
   {% block header_debug %}
     {% if g.debug and not g.debug_supress_header %}
@@ -145,4 +120,4 @@
 
     </div>
   </div>
-</header>
+</header>{% endblock %}

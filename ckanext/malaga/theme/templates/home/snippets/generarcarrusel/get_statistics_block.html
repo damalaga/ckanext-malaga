@@ -1,0 +1,30 @@
+{% set stats = h.get_site_statistics() %}
+<section class="group-list module module-narrow module-shallow">
+  <div class="box">
+    <header>
+      <img class="img-presentacion-banners" src="/images/banner_estadisticas.png">
+    </header>
+    <div class="dataset-item module-content" align="justify">
+		<table>
+			<tr>
+				<td><b>{{ h.SI_number_span(stats.dataset_count) }}</b></td>
+				<td style="padding-left:10px"><a href="{{ h.url_for(controller='package', action='search') }}"> Conjuntos de datos</a></td>
+			</tr>
+			<tr>
+				<td><b>{{h.mlg_count_resources() }}</b></td>
+				<td style="padding-left:10px"><a href="{{ h.url_for(controller='package', action='search') }}"> Recursos</a></td>
+			</tr>
+			<tr>
+				<td style="text-align:right"><b>{{ h.SI_number_span(stats.organization_count) }}</b></a></td>
+				<td style="padding-left:10px"><a href="{{ h.url_for(controller='organization', action='index') }}"> Organizaciones</a></td>
+			</tr>
+			<tr>
+				<td style="text-align:right"><b>{{ h.SI_number_span(stats.group_count) }}</b></td>
+				<td style="padding-left:10px"><a href="{{ h.url_for(controller='group', action='index') }}"> Grupos</a></td>
+			</tr>
+		</table>
+      </p>
+    </div>
+  </div>
+</section>
+

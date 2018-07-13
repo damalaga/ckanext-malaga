@@ -135,6 +135,7 @@ background-color: #ffffff;
 border: none;
 }
 
+
 .search-malaga {float: right; padding: 20px 0 0 0; position: relative; bottom: -10px;} 
 
 .malaga-header-title h1 {padding-left:72px; float:left; font-size:30px; margin:3px 3px 3px 3px} 
@@ -520,4 +521,26 @@ body {
 background-image:url("");
 background-color:white;
 
+}
+
+
+.pagination > li {
+    display: inline;
+}
+.pagination-wrapper {
+
+    text-align: center;
+
+}
+
+.module .pagination li a {
+
+    border-top: none;
+    border-bottom: none;
+    border-bottom-color: currentcolor;
+    border-bottom-style: none;
+    border-bottom-width: medium;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    padding-left: 15px;
 }

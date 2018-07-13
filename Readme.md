@@ -12,7 +12,7 @@ ckanext-malaga es la extensión que el Centro Municipal de Informática [CEMI](h
 
 ## Instalación y configuración del portal de datos abiertos.
 Los pasos para reproducir el portal de datos abiertos del Ayuntamiento de Málaga son los siguientes:
-* Instalar Ubuntu 14.04.2.
+* Instalar Ubuntu 16.04.4 LTS 
 * Instalar la última versión de CKAN disponible en formato "instalar desde fuente", las instrucciones se encuentran en este enlace [CKAN install from source](http://docs.ckan.org/en/latest/maintaining/installing/install-from-source.html).
 * Seguir los pasos que explicamos a continuación.
 * NOTA: Los iconos de grupos y organizaciones que proporcionamos en este repositorio se corresponde con la categorización requerida según la NTI (http://www.boe.es/boe/dias/2013/03/04/pdfs/BOE-A-2013-2380.pdf) y que son imprescindibles para la federación de los datos en (http://datos.gob.es/catalogo).
@@ -21,7 +21,7 @@ Los pasos para reproducir el portal de datos abiertos del Ayuntamiento de Málag
 * ckanext-malaga usa la extensión [ckanext-contacto](https://github.com/damalaga/ckanext-contacto), por lo que tiene que estar instalada también.
 
 * Esta extensión funciona en versiones de CKAN iguales o mayores a 2.3 (CKAN responsive), no está probada en versiones anteriores.
-
+* Versión compatible para CKAN 2.8 con bootstrap 2.
 
 ### Descarga de la extensión
 
@@ -33,6 +33,15 @@ Los pasos para reproducir el portal de datos abiertos del Ayuntamiento de Málag
 * Desplegarla
 <p>python setup.py develop</p>
 
+### Configuración del fichero ini para CKAN 2.8
+Para que siga usando bootstrap 2, añadir la siguiente configuración en el fichero .ini y reiniciar apache2:
+<pre>
+<code>
+# Uncomment following configuration to enable using of Bootstrap 2
+ckan.base_public_folder = public-bs2
+ckan.base_templates_folder = templates-bs2
+</code>
+</pre>
 ### Configuración de la extensión
 Añadir la siguiente configuración en el fichero .ini y reiniciar apache2:
 <pre>
