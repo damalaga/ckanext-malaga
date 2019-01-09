@@ -1,0 +1,6 @@
+[ckan.plugins]
+malaga = ckanext.malaga.plugin:malagae
+
+[paste.paster_command]
+dscleanup = ckanext.malaga.command:AdminCommand
+

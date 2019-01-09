@@ -10,15 +10,24 @@ El [Portal de Datos Abiertos del Ayuntamiento de Málaga](http://datosabiertos.m
 
 ckanext-malaga es la extensión que el Centro Municipal de Informática [CEMI](http://cemi.malaga.eu) ha desarrollado para adaptar la plataforma a las necesidades específicas del ayuntamiento.
 
+Hemos configurado el portal de datos abiertos para que el buscador de datasets de Google indexe nuestros conjuntos de datos (ver configuración más abajo en esta documentación)
+
+
 ## Instalación y configuración del portal de datos abiertos.
 Los pasos para reproducir el portal de datos abiertos del Ayuntamiento de Málaga son los siguientes:
-* Instalar Ubuntu 14.04.2.
+* Instalar Ubuntu 18.04.1.
 * Instalar la última versión de CKAN disponible en formato "instalar desde fuente", las instrucciones se encuentran en este enlace [CKAN install from source](http://docs.ckan.org/en/latest/maintaining/installing/install-from-source.html).
 * Seguir los pasos que explicamos a continuación.
 * NOTA: Los iconos de grupos y organizaciones que proporcionamos en este repositorio se corresponde con la categorización requerida según la NTI (http://www.boe.es/boe/dias/2013/03/04/pdfs/BOE-A-2013-2380.pdf) y que son imprescindibles para la federación de los datos en (http://datos.gob.es/catalogo).
 
 ### Requisitos
-* ckanext-malaga usa la extensión [ckanext-contacto](https://github.com/damalaga/ckanext-contacto), por lo que tiene que estar instalada también.
+Para el correcto funcionamiento de esta extensión son necesarios las siguientes extensiones:
+
+* [ckanext-geoview](https://github.com/ckan/ckanext-geoview): que permite visualizar Geoespacialmente los datos geolocalizados.
+* [ckanext-dcat](https://github.com/ckan/ckanext-dcat): para que Google Datasearch indexe los archivo
+* [ckanext-federador](https://github.com/damalaga/ckanext-federador): con el que se consigue la federación de datos.gob.es
+* [ckanext-contacto](https://github.com/damalaga/ckanext-contacto): extensión con la que se pueden enviar notificaciones a Datos Abiertos Málaga.
+
 
 * Esta extensión funciona en versiones de CKAN iguales o mayores a 2.3 (CKAN responsive), no está probada en versiones anteriores.
 
@@ -28,8 +37,10 @@ Los pasos para reproducir el portal de datos abiertos del Ayuntamiento de Málag
 * Conectarse a la máquina de CKAN con el usuario de ckan.
 * Ir al directorio de instalación de la extensión (en nuestro caso):
 <p>cd ckan/lib/default/src</p>
+
 * Clonar la extensión
 <p>git clone https://github.com/damalaga/ckanext-malaga</p>
+
 * Desplegarla
 <p>python setup.py develop</p>
 
@@ -87,12 +98,11 @@ Las imágenes de los grupos y organizaciones están clasificados según nuestras
 ### Formulario de contacto
 Los desarrolladores que usen nuestra API, pueden rellenar un formulario de contacto para que demos de alta su aplicación en nuestra página de "aplicaciones disponibles", para ello, hemos usado una extensión que hemos desarrollado y que está disponible en (https://github.com/damalaga/ckanext-contact)
 
-## Federación:
+## Federación
 
 La federación del portal en datos.gob.es se hace ahora con una extensión independiente a esta que también ha sido desarrollada por el [CEMI](http://cemi.malaga.eu).
 
 La federación está disponible en [ckanext-federador](https://github.com/damalaga/ckanext-federador)
-
 
 ## Licencia:
 

@@ -7,33 +7,34 @@
   {% block package_description %}
     {% if pkg.private %}
       <span class="dataset-private label label-inverse pull-right">
-        <i class="icon-lock"></i>
+        <i class="fa fa-lock"></i>
         {{ _('Private') }}
       </span>
     {% endif %}
-<div>
+    <h1>
       {% block page_heading %}
-<h1>        {{ pkg.title or pkg.name }}
+        {{ h.dataset_display_name(pkg) }}
         {% if pkg.state.startswith('draft') %}
-         [{{ _('Draft') }}]
+          [{{ _('Draft') }}]
         {% endif %}
-
+        {% if pkg.state == 'deleted' %}
+          [{{ _('Deleted') }}]
+        {% endif %}
+      {% endblock %}
 <a href={{h.url_for(controller='package',action='read',id=c.pkg_dict['name'], qualified=True)}}.rdf>
 <img class="malaga-format-ico-rdf" src="/images/support/icon-rdf.png">
 </a>
-</h1>
-{{pkg.notes}}
-      {% endblock %}
-</div>
 
-{% block package_notes %}
-      {% if c.pkg_notes_formatted %}
+    </h1>
+    {% block package_notes %}
+      {% if pkg.notes %}
         <div class="notes embedded-content">
-          {{ c.pkg_notes_formatted }}
+          {{ h.render_markdown(h.get_translated(pkg, 'notes')) }}
         </div>
       {% endif %}
     {% endblock %}
-
+    {# FIXME why is this here? seems wrong #}
+    <span class="insert-comment-thread"></span>
   {% endblock %}
 
   {% block package_resources %}

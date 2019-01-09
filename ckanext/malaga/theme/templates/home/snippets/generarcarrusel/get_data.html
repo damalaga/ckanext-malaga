@@ -1,0 +1,7 @@
+{%set today=h.mlg_cur_datetime(self) %}
+
+{% set ds = h.mlg_ds_list() %}
+	{% for c in ds %}
+		{{c}},{{ h.mlg_ds_resources_list(c)['num_resources'] }}
+	<p></p>
+	{% endfor %}

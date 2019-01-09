@@ -1,0 +1,57 @@
+{% extends "page.html" %}
+
+{% block subtitle %}Aplicaciones{% endblock %}
+
+{% block breadcrumb_content %}
+<a class=" active" href="/aplicaciones">Ejemplo de aplicaciones que utilizan nuestros datos</a>
+{% endblock %}
+
+
+{% block primary %}
+<article class="mlg-module-content-app">
+	<a href="/contacto/form.html">
+	<img src="images/home-slider/aplicaciones.png" alt="Háznos llegar tus aplicaciones" onmouseout="javascript:this.src='/images/home-slider/aplicaciones.png';" onmouseover="javascript:this.src='images/home-slider/aplicacioneson.png';" onmouseup="javascript:this.src='images/home-slider/aplicaciones.png';" onmousedown="javascript:this.src='images/home-slider/aplicacioneson.png';">
+	</a>    
+<div class="mlg-lista-aplicaciones">
+	<ul class="nav nav-tabs" id="mlg-app-tab">
+		<li class="active"><a href="#mlg-app" data-toggle="tab"><h3>Apps</h3></a></li>
+		<li><a href="#mlg-web" data-toggle="tab"><h3>Webs</h3></a></li>
+	</ul>
+	
+	<div class="tab-content" style="display:inline" >
+		<div class="tab-pane active" id="mlg-app">
+			<div class="mlg-site-aplicaciones"> 
+				{% snippet 'home/snippets/aplicaciones/barrios_malaga.html' %}
+				{% snippet 'home/snippets/aplicaciones/here.html' %}
+				{% snippet 'home/snippets/aplicaciones/malaga_bici.html' %}
+				{% snippet 'home/snippets/aplicaciones/malaga_citysense.html' %}
+				{% snippet 'home/snippets/aplicaciones/malaga_con_bici.html' %}
+				{% snippet 'home/snippets/aplicaciones/malaga_en_bici.html' %}
+				{% snippet 'home/snippets/aplicaciones/moovit.html' %}
+				{% snippet 'home/snippets/aplicaciones/parques_empresariales.html' %}
+				{% snippet 'home/snippets/aplicaciones/seetys_transporte.html' %}
+				{% snippet 'home/snippets/aplicaciones/tomtom_navegacion.html' %}
+				{% snippet 'home/snippets/aplicaciones/tomtom_mydrive.html' %}
+				{% snippet 'home/snippets/aplicaciones/tomtom_vio.html' %}
+				{% snippet 'home/snippets/aplicaciones/zonas_musculacion.html' %}
+			</div>
+		</div>
+		<div class="tab-pane" id="mlg-web">
+			<div class="mlg-site-aplicaciones"> 
+				{% snippet 'home/snippets/aplicaciones/2train.html' %}
+				{% snippet 'home/snippets/aplicaciones/donde_reciclo.html' %}
+				{% snippet 'home/snippets/aplicaciones/bichosbusters.html' %}
+				{% snippet 'home/snippets/aplicaciones/openstreetmap.html' %}
+				{% snippet 'home/snippets/aplicaciones/papelea.html' %}
+				{% snippet 'home/snippets/aplicaciones/mapasonoro.html' %}
+			</div>
+		</div>
+			
+    </div>
+</div>
+  </article>
+{% endblock %}
+{% block secondary %}
+
+{% endblock %}
+

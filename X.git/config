@@ -1,0 +1,11 @@
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+[remote "origin"]
+	url = https://@github.com/damalaga/ckanext-malaga.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
+[branch "v2.0-para-CKAN2.3-respon"]
+	remote = origin
+	merge = refs/heads/v2.0-para-CKAN2.3-respon
