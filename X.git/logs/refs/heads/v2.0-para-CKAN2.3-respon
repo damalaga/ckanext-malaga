@@ -1,2 +1,0 @@
-0000000000000000000000000000000000000000 b71592c1ce786c02a5073fb8b3e45f850ce17d38 damalaga <datosabiertos@malaga.eu> 1547022247 +0100	clone: from https://@github.com/damalaga/ckanext-malaga.git
-b71592c1ce786c02a5073fb8b3e45f850ce17d38 5bee7aa2ff38f201bc14c903f28edceec3e5b8d6 damalaga <datosabiertos@malaga.eu> 1547025384 +0100	commit: Añadimos el html activity_stream_items.html para que no aparezca la pestaña Flujo de Actividad
