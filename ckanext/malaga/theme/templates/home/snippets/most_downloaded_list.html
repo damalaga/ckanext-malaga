@@ -9,8 +9,8 @@ Example:
 #}
 {% if datasets %}
 {% set cont=0 %}
-	{% for ds in datasets %}
   <ul class="{{ list_class or 'dataset-list unstyled' }}">
+	{% for ds in datasets %}
 	      {% snippet 'home/snippets/most_downloaded_item.html', ds=datasets[cont] %}
 	      {% set cont = cont + 1 %}
 	{% endfor %}
